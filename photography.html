@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Photography — Henry Meehan</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { background: #0a0a0a; color: #e8e8e8; font-family: 'Inter', sans-serif; }
+    nav a:hover { color: #d4a853; }
+    .chapter-hero { height: 65vh; background-size: cover; background-position: center; }
+    .photo-grid img { width: 100%; aspect-ratio: 4/3; object-fit: cover; cursor: pointer; transition: opacity 0.2s; display: block; }
+    .photo-grid img:hover { opacity: 0.85; }
+    .chapter-nav a { transition: color 0.2s, border-color 0.2s; }
+    .chapter-nav a:hover, .chapter-nav a.active { color: #d4a853; border-color: #d4a853; }
+    #lightbox { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.95); z-index: 1000; align-items: center; justify-content: center; }
+    #lightbox.open { display: flex; }
+    #lightbox img { max-height: 90vh; max-width: 90vw; object-fit: contain; }
+    #lightbox-close { position: absolute; top: 20px; right: 24px; font-size: 2rem; cursor: pointer; color: #aaa; line-height: 1; }
+    #lightbox-close:hover { color: white; }
+    #lightbox-prev, #lightbox-next { position: absolute; top: 50%; transform: translateY(-50%); font-size: 2rem; cursor: pointer; color: #aaa; padding: 20px; user-select: none; }
+    #lightbox-prev:hover, #lightbox-next:hover { color: #d4a853; }
+    #lightbox-prev { left: 10px; }
+    #lightbox-next { right: 10px; }
+  </style>
+</head>
+<body>
+  <!-- Nav -->
+  <nav class="fixed top-0 w-full z-50 px-6 py-4 flex items-center justify-between" style="background: rgba(10,10,10,0.95); border-bottom: 1px solid #1a1a1a;">
+    <a href="index.html" class="text-sm font-medium tracking-widest uppercase text-white hover:text-amber-500" style="color:#e8e8e8; text-decoration:none;">Henry Meehan</a>
+    <div class="flex gap-8 text-sm text-gray-400">
+      <a href="photography.html" style="color:#d4a853;">Photography</a>
+      <a href="design.html" class="hover:text-amber-500" style="text-decoration:none; transition:color 0.2s;">Design</a>
+      <a href="about.html" class="hover:text-amber-500" style="text-decoration:none; transition:color 0.2s;">About</a>
+      <a href="contact.html" class="hover:text-amber-500" style="text-decoration:none; transition:color 0.2s;">Contact</a>
+    </div>
+  </nav>
+
+  <!-- Chapter Nav -->
+  <div class="chapter-nav sticky z-40 flex gap-0 overflow-x-auto text-xs tracking-widest uppercase border-b" style="top:57px; background:#0a0a0a; border-color:#1a1a1a;">
+    <a href="#nz" class="px-5 py-4 border-b-2 border-transparent whitespace-nowrap" style="color:#999; text-decoration:none;">🇳🇿 New Zealand</a>
+    <a href="#vietnam" class="px-5 py-4 border-b-2 border-transparent whitespace-nowrap" style="color:#999; text-decoration:none;">🇻🇳 Vietnam</a>
+    <a href="#japan" class="px-5 py-4 border-b-2 border-transparent whitespace-nowrap" style="color:#999; text-decoration:none;">🇯🇵 Japan</a>
+    <a href="#thailand" class="px-5 py-4 border-b-2 border-transparent whitespace-nowrap" style="color:#999; text-decoration:none;">🇹🇭 Thailand</a>
+    <a href="#singapore" class="px-5 py-4 border-b-2 border-transparent whitespace-nowrap" style="color:#999; text-decoration:none;">🇸🇬 Singapore</a>
+    <a href="#kenya" class="px-5 py-4 border-b-2 border-transparent whitespace-nowrap" style="color:#999; text-decoration:none;">🇰🇪 Kenya</a>
+    <a href="#west" class="px-5 py-4 border-b-2 border-transparent whitespace-nowrap" style="color:#999; text-decoration:none;">🇺🇸 American West</a>
+  </div>
+
+  <!-- ============ NEW ZEALAND ============ -->
+  <section id="nz" class="pt-0">
+    <div class="chapter-hero" style="background-image: url('photos/travel/file_61---78958b98-d757-4aaf-a92c-ef5356f72604.jpg'); position: relative;">
+      <div style="position:absolute;inset:0;background:linear-gradient(to top, rgba(10,10,10,0.85) 0%, rgba(10,10,10,0.15) 55%, transparent 100%);"></div>
+      <div style="position:absolute;bottom:2.5rem;left:2.5rem;right:2.5rem;z-index:10;">
+        <p style="font-size:0.65rem;letter-spacing:0.2em;text-transform:uppercase;color:#d4a853;margin-bottom:0.75rem;">New Zealand</p>
+        <h2 style="font-size:2.5rem;font-weight:300;margin-bottom:1rem;">Back Country</h2>
+        <p style="color:#ccc;max-width:600px;line-height:1.7;font-size:0.95rem;">South Island, New Zealand, 2024. Fly fishing remote back-country rivers with water so clear you can count the rocks fifteen feet down. The Haast Pass, Pancake Rocks, and a New Year's painted in light over a mountain creek.</p>
+      </div>
+    </div>
+    <div class="photo-grid p-4 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2" data-chapter="nz">
+      <img src="photos/travel/file_53---7ba9186c-eea0-4a03-98ef-a678472b70cb.jpg" loading="lazy" alt="NZ night light painting">
+      <img src="photos/travel/file_54---f917234b-b63d-4cff-975d-464637619390.jpg" loading="lazy" alt="Milford Track hikers">
+      <img src="photos/travel/file_55---8fbf98ec-02cd-445b-ab6d-15e271e3d6ce.jpg" loading="lazy" alt="Blue Pools Haast Pass">
+      <img src="photos/travel/file_56---696f224b-2cfe-4fc9-97db-41900ca4d80f.jpg" loading="lazy" alt="Pancake Rocks">
+      <img src="photos/travel/file_57---0a6b7715-6026-4220-b8d1-843be7d56bf3.jpg" loading="lazy" alt="Pancake Rocks coast">
+      <img src="photos/travel/file_58---869164cd-c48c-4982-90b1-42305bac865c.jpg" loading="lazy" alt="Pancake Rocks wide">
+      <img src="photos/travel/file_59---648925ba-3600-4bd7-bec0-fcabbabd47b1.jpg" loading="lazy" alt="NZ river wide">
+      <img src="photos/travel/file_60---2ad49843-7275-43af-b582-205a8412dfa3.jpg" loading="lazy" alt="Fly fisher cliff view">
+      <img src="photos/travel/file_61---78958b98-d757-4aaf-a92c-ef5356f72604.jpg" loading="lazy" alt="Fly fisher waterfall">
+      <img src="photos/travel/file_62---3f694ae9-76f0-47d9-b611-5aa3a626afc9.jpg" loading="lazy" alt="NZ fishing">
+      <img src="photos/travel/file_63---445e2d84-4866-433e-8375-a1d4928217fa.jpg" loading="lazy" alt="Angler gravel river">
+      <img src="photos/travel/file_64---fe17a724-d9f3-4270-a4c5-a2c6afd4de7d.jpg" loading="lazy" alt="River driftwood mountains">
+      <img src="photos/travel/file_65---7a944cca-aee2-42cb-af08-636d27b6e9e5.jpg" loading="lazy" alt="Waterfall weir mountains">
+      <img src="photos/travel/file_66---02824f2e-5314-4f03-8928-e60716b126e8.jpg" loading="lazy" alt="Sheep valley">
+      <img src="photos/travel/file_67---b08b7e78-6d46-48f4-8c9d-d78436027d7f.jpg" loading="lazy" alt="NZ peaks">
+      <img src="photos/travel/file_68---e793035b-c1db-402f-9f14-9cc2b3d40aae.jpg" loading="lazy" alt="Snow range">
+      <img src="photos/travel/file_69---ef209780-dd15-40c0-9dae-6e21d21222bc.jpg" loading="lazy" alt="Southern Alps">
+      <img src="photos/travel/file_70---0fc9350c-ae20-47b0-b961-538e6101c321.jpg" loading="lazy" alt="Snow peak">
+      <img src="photos/travel/file_71---95e0f1a0-e850-4d72-9e6e-78e656b068ba.jpg" loading="lazy" alt="Brown trout release">
+      <img src="photos/travel/file_72---b2fb6e58-e9e7-44cb-a0a7-7e13de1063ab.jpg" loading="lazy" alt="NZ South Island">
+      <img src="photos/travel/file_39---05c68916-f18e-449b-bb66-f32da1152a68.jpg" loading="lazy" alt="Blue mushrooms NZ">
+    </div>
+  </section>
+
+  <!-- ============ VIETNAM ============ -->
+  <section id="vietnam" class="border-t" style="border-color:#1a1a1a;">
+    <div class="chapter-hero" style="background-image: url('photos/travel/file_113---0cb2ce59-0b8d-412f-90af-0a1882043fb0.jpg'); position: relative;">
+      <div style="position:absolute;inset:0;background:linear-gradient(to top, rgba(10,10,10,0.85) 0%, rgba(10,10,10,0.15) 55%, transparent 100%);"></div>
+      <div style="position:absolute;bottom:2.5rem;left:2.5rem;right:2.5rem;z-index:10;">
+        <p style="font-size:0.65rem;letter-spacing:0.2em;text-transform:uppercase;color:#d4a853;margin-bottom:0.75rem;">Vietnam</p>
+        <h2 style="font-size:2.5rem;font-weight:300;margin-bottom:1rem;">Ha Giang Loop</h2>
+        <p style="color:#ccc;max-width:600px;line-height:1.7;font-size:0.95rem;">The Ha Giang Loop by motorbike through Vietnam's northern karst mountains. Ancient Hmong villages, switchback roads that drop into limestone gorges, and a river cave that felt like the end of the world.</p>
+      </div>
+    </div>
+    <div class="photo-grid p-4 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2" data-chapter="vietnam">
+      <img src="photos/travel/file_73---e464c70b-07fe-49ef-a919-4dd3260b7af8.jpg" loading="lazy" alt="Lung Cu flag tower">
+      <img src="photos/travel/file_74---bbc91a96-914f-4163-b0f6-f3254c3ddb63.jpg" loading="lazy" alt="Ha Giang gorge">
+      <img src="photos/travel/file_75---c0d9c18d-b401-4e56-b798-544686fed31e.jpg" loading="lazy" alt="Limestone gorge">
+      <img src="photos/travel/file_76---9d25fcc3-9fc6-4f3c-92ca-2a0f9d21a069.jpg" loading="lazy" alt="Mountain flowers">
+      <img src="photos/travel/file_77---5e2c323d-81cd-4e95-8364-12340b87fcec.jpg" loading="lazy" alt="Kids on road sign">
+      <img src="photos/travel/file_78---dcc81554-f5dd-4235-83e7-73e6ceb97125.jpg" loading="lazy" alt="Sapa rice terraces">
+      <img src="photos/travel/file_79---440482f4-3d3b-4b00-be54-ecf11ae7c848.jpg" loading="lazy" alt="Ha Giang mountain">
+      <img src="photos/travel/file_80---f6c8f1aa-b4b6-492e-9521-7bb074381e59.jpg" loading="lazy" alt="Vietnam karst">
+      <img src="photos/travel/file_81---3d64bfb3-969c-4ff7-956e-2a4602f8579c.jpg" loading="lazy" alt="Vietnam landscape">
+      <img src="photos/travel/file_108---f4227211-3334-43a7-a134-2259fe554094.jpg" loading="lazy" alt="Vietnam flag tower">
+      <img src="photos/travel/file_109---4aeb6d7e-2ea2-4b98-bd58-ba5d0cd65fe2.jpg" loading="lazy" alt="Ha Giang mirror selfie">
+      <img src="photos/travel/file_110---8c5ca492-c9e1-44ec-9a91-f3282e096d73.jpg" loading="lazy" alt="Vietnam mountain kid">
+      <img src="photos/travel/file_111---c9781802-056d-4ce6-ab3e-cbf90c5eecb8.jpg" loading="lazy" alt="Hmong women switchbacks">
+      <img src="photos/travel/file_112---6563800f-c6af-4104-9627-d1e9620b41a1.jpg" loading="lazy" alt="Ha Giang panorama">
+      <img src="photos/travel/file_113---0cb2ce59-0b8d-412f-90af-0a1882043fb0.jpg" loading="lazy" alt="River cave boat">
+      <img src="photos/travel/file_114---13b23864-5097-476a-82f3-9552fce178fd.jpg" loading="lazy" alt="Cave stalactites">
+      <img src="photos/travel/file_115---c125fffa-97c3-4187-a8c2-6374841e623d.jpg" loading="lazy" alt="Cave interior">
+    </div>
+  </section>
+
+  <!-- ============ JAPAN ============ -->
+  <section id="japan" class="border-t" style="border-color:#1a1a1a;">
+    <div class="chapter-hero" style="background-image: url('photos/travel/file_130---09163f25-7559-4103-a924-9088fbe776b5.jpg'); position: relative;">
+      <div style="position:absolute;inset:0;background:linear-gradient(to top, rgba(10,10,10,0.85) 0%, rgba(10,10,10,0.15) 55%, transparent 100%);"></div>
+      <div style="position:absolute;bottom:2.5rem;left:2.5rem;right:2.5rem;z-index:10;">
+        <p style="font-size:0.65rem;letter-spacing:0.2em;text-transform:uppercase;color:#d4a853;margin-bottom:0.75rem;">Japan</p>
+        <h2 style="font-size:2.5rem;font-weight:300;margin-bottom:1rem;">Nara &amp; Kyoto</h2>
+        <p style="color:#ccc;max-width:600px;line-height:1.7;font-size:0.95rem;">Cherry blossom season in Nara and Kyoto. Deer wandering temple grounds like they own the place — because they do. Wagyu omakase in a twelve-seat counter restaurant where every plate was a sculpture.</p>
+      </div>
+    </div>
+    <div class="photo-grid p-4 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2" data-chapter="japan">
+      <img src="photos/travel/file_88---9be281f2-c5cc-4731-86b1-24bdefb2c99b.jpg" loading="lazy" alt="Wagyu omakase">
+      <img src="photos/travel/file_89---b548c096-c904-44e8-9f14-d0754b292eb9.jpg" loading="lazy" alt="Sushi chef">
+      <img src="photos/travel/file_90---3ca9addf-a962-4c75-a137-378013d6be6a.jpg" loading="lazy" alt="Fushimi Inari torii gates">
+      <img src="photos/travel/file_91---5a8cb6c3-79b7-4fa2-87bc-31d2b9856b0e.jpg" loading="lazy" alt="Kyoto temple">
+      <img src="photos/travel/file_92---33a50c06-8895-4ed7-8eaf-25a3c0374ce4.jpg" loading="lazy" alt="Kyoto street">
+      <img src="photos/travel/file_93---889a9ec3-c4ef-4b80-96b9-e6c47fcba8ce.jpg" loading="lazy" alt="Japan">
+      <img src="photos/travel/file_94---1c2940fb-425d-41cf-8b60-6c9f5e5681dd.jpg" loading="lazy" alt="Japan">
+      <img src="photos/travel/file_118---508679ca-fa7d-4193-891a-fad68a7df2ed.jpg" loading="lazy" alt="Nara deer pagoda">
+      <img src="photos/travel/file_119---21c92bd4-b239-4822-8962-0bbe35221565.jpg" loading="lazy" alt="Japanese maple">
+      <img src="photos/travel/file_120---5dd06800-4580-410e-91bc-ef6b7d98c90c.jpg" loading="lazy" alt="Torii gates selfie">
+      <img src="photos/travel/file_121---fd27ca50-7613-43e0-a428-303c7c50ffb3.jpg" loading="lazy" alt="Kyoto detail">
+      <img src="photos/travel/file_122---65405a29-61f7-4f79-9539-ddc0f655bc6e.jpg" loading="lazy" alt="Cherry blossoms">
+      <img src="photos/travel/file_123---debc7ecc-cb56-40a5-b587-dcaceabf4ab8.jpg" loading="lazy" alt="Japanese maple foliage">
+      <img src="photos/travel/file_130---09163f25-7559-4103-a924-9088fbe776b5.jpg" loading="lazy" alt="Nara deer pagoda cherry">
+    </div>
+  </section>
+
+  <!-- ============ THAILAND ============ -->
+  <section id="thailand" class="border-t" style="border-color:#1a1a1a;">
+    <div class="chapter-hero" style="background-image: url('photos/travel/file_40---03642663-c8b7-4609-998f-7445cf972e6d.jpg'); position: relative;">
+      <div style="position:absolute;inset:0;background:linear-gradient(to top, rgba(10,10,10,0.85) 0%, rgba(10,10,10,0.15) 55%, transparent 100%);"></div>
+      <div style="position:absolute;bottom:2.5rem;left:2.5rem;right:2.5rem;z-index:10;">
+        <p style="font-size:0.65rem;letter-spacing:0.2em;text-transform:uppercase;color:#d4a853;margin-bottom:0.75rem;">Thailand</p>
+        <h2 style="font-size:2.5rem;font-weight:300;margin-bottom:1rem;">Chiang Mai</h2>
+        <p style="color:#ccc;max-width:600px;line-height:1.7;font-size:0.95rem;">Northern Thailand at its slowest. Golden chedis and morning markets, bamboo bridges disappearing into hill country mist, and streets tangled with decades of wire.</p>
+      </div>
+    </div>
+    <div class="photo-grid p-4 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2" data-chapter="thailand">
+      <img src="photos/travel/file_40---03642663-c8b7-4609-998f-7445cf972e6d.jpg" loading="lazy" alt="Bamboo bridge">
+      <img src="photos/travel/file_41---342b7cbe-d70e-4cf7-90cc-9b791e20bb03.jpg" loading="lazy" alt="Power lines street">
+      <img src="photos/travel/file_42---fd403e9b-1fe7-4c33-851e-78aece8b52f1.jpg" loading="lazy" alt="Temple entrance statues">
+      <img src="photos/travel/file_47---be287778-886e-4289-bdb6-aa34196fc8f1.jpg" loading="lazy" alt="Golden stupa">
+      <img src="photos/travel/file_48---7f3d7a71-58a7-49d7-8b19-a25733ac9c8d.jpg" loading="lazy" alt="Temple interior">
+      <img src="photos/travel/file_49---444aaba5-cf2d-4708-9bb7-5ba3f11750f0.jpg" loading="lazy" alt="Chedi exterior">
+      <img src="photos/travel/file_50---17d3eb52-3d7b-43f0-9edc-26f77939f21d.jpg" loading="lazy" alt="Rice paddies Buddhist flag">
+      <img src="photos/travel/file_51---a4a9ea6b-d762-4cd3-a649-b4662794e868.jpg" loading="lazy" alt="Bamboo temple walk">
+      <img src="photos/travel/file_52---4d313156-baa4-446d-90f3-7e3f0c886402.jpg" loading="lazy" alt="Music studio">
+    </div>
+  </section>
+
+  <!-- ============ SINGAPORE ============ -->
+  <section id="singapore" class="border-t" style="border-color:#1a1a1a;">
+    <div class="chapter-hero" style="background-image: url('photos/travel/file_38---cc67decf-d449-4634-8068-2f9134f1700b.jpg'); position: relative;">
+      <div style="position:absolute;inset:0;background:linear-gradient(to top, rgba(10,10,10,0.85) 0%, rgba(10,10,10,0.15) 55%, transparent 100%);"></div>
+      <div style="position:absolute;bottom:2.5rem;left:2.5rem;right:2.5rem;z-index:10;">
+        <p style="font-size:0.65rem;letter-spacing:0.2em;text-transform:uppercase;color:#d4a853;margin-bottom:0.75rem;">Singapore</p>
+        <h2 style="font-size:2.5rem;font-weight:300;margin-bottom:1rem;">City After Dark</h2>
+        <p style="color:#ccc;max-width:600px;line-height:1.7;font-size:0.95rem;">Singapore shot almost entirely after dark. The city earns its skyline — every building lit like it knows it's being watched.</p>
+      </div>
+    </div>
+    <div class="photo-grid p-4 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2" data-chapter="singapore">
+      <img src="photos/travel/file_38---cc67decf-d449-4634-8068-2f9134f1700b.jpg" loading="lazy" alt="Marina Bay Sands night reflection">
+      <img src="photos/travel/file_43---92ccc7c4-e28c-4ead-b1f0-fad1e2f840a4.jpg" loading="lazy" alt="Singapore skyline night">
+      <img src="photos/travel/file_44---1b64fc99-7fce-4d7f-9a49-70d3c48b81f0.jpg" loading="lazy" alt="MBS from Gardens by the Bay">
+      <img src="photos/travel/file_45---5b8b3e66-b698-48d9-b7a3-a611c94f993e.jpg" loading="lazy" alt="Supertrees">
+      <img src="photos/travel/file_46---5e8150fb-2f6c-4a0d-bce4-2910be6e204d.jpg" loading="lazy" alt="Singapore city">
+    </div>
+  </section>
+
+  <!-- ============ KENYA ============ -->
+  <section id="kenya" class="border-t" style="border-color:#1a1a1a;">
+    <div class="chapter-hero" style="background-image: url('photos/travel/file_194---df4e6ada-e643-4620-91d5-9a29b1b7be13.jpg'); position: relative;">
+      <div style="position:absolute;inset:0;background:linear-gradient(to top, rgba(10,10,10,0.85) 0%, rgba(10,10,10,0.15) 55%, transparent 100%);"></div>
+      <div style="position:absolute;bottom:2.5rem;left:2.5rem;right:2.5rem;z-index:10;">
+        <p style="font-size:0.65rem;letter-spacing:0.2em;text-transform:uppercase;color:#d4a853;margin-bottom:0.75rem;">Kenya</p>
+        <h2 style="font-size:2.5rem;font-weight:300;margin-bottom:1rem;">Maasai Mara</h2>
+        <p style="color:#ccc;max-width:600px;line-height:1.7;font-size:0.95rem;">The Mara in dry season. Cheetah moving through tall grass, a baboon scrambling up an acacia to escape the lions at its base, and a white rhino walking straight at the vehicle like it owned the road.</p>
+      </div>
+    </div>
+    <div class="photo-grid p-4 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2" data-chapter="kenya">
+      <img src="photos/travel/file_185---ad78c183-0558-4d5c-9889-df15342b1ab1.jpg" loading="lazy" alt="Hoopoe bird acacia">
+      <img src="photos/travel/file_186---25315f8b-605c-40dc-92a8-bd6cd4e60835.jpg" loading="lazy" alt="Baboon savanna">
+      <img src="photos/travel/file_187---7fdc11c7-1b9a-4499-a9c9-4b02dcb13f4e.jpg" loading="lazy" alt="Cheetah golden grass">
+      <img src="photos/travel/file_188---927be48f-b454-4619-bfef-da8bb507f9a2.jpg" loading="lazy" alt="Lions baboon acacia story shot">
+      <img src="photos/travel/file_189---8eda33a2-8697-4949-b0bd-83d0cb84ca8b.jpg" loading="lazy" alt="White rhino close-up">
+      <img src="photos/travel/file_190---ea759cbb-849e-4338-8273-cb7b1d29fbd5.jpg" loading="lazy" alt="Waterbuck and zebras">
+      <img src="photos/travel/file_191---473d4ab1-f4a2-464d-8eec-5aba7f091f38.jpg" loading="lazy" alt="Black-backed jackal golden hour">
+      <img src="photos/travel/file_192---f262bd01-3503-4cfe-8fe3-a5e1ed8845fe.jpg" loading="lazy" alt="White rhino walking">
+      <img src="photos/travel/file_193---9b4806fc-f284-4128-b6ee-b2abbcc84e2a.jpg" loading="lazy" alt="Elephant tusks close">
+      <img src="photos/travel/file_194---df4e6ada-e643-4620-91d5-9a29b1b7be13.jpg" loading="lazy" alt="Giraffe lone acacia">
+      <img src="photos/travel/file_195---5bff993d-b2b8-48be-9193-46e123c6c0c3.jpg" loading="lazy" alt="Elephant eating grass">
+      <img src="photos/travel/file_196---08d1be51-0a5e-46f0-bbb8-80ca5309e845.jpg" loading="lazy" alt="Bateleur eagle in flight">
+      <img src="photos/travel/file_197---ed0e38f1-bb6d-442f-9489-01446131317f.jpg" loading="lazy" alt="Lovebird fever tree">
+    </div>
+  </section>
+
+  <!-- ============ AMERICAN WEST ============ -->
+  <section id="west" class="border-t" style="border-color:#1a1a1a;">
+    <div class="chapter-hero" style="background-image: url('photos/travel/file_142---8b76f8ab-72c1-43e3-bfd1-27c88c05b4bb.jpg'); position: relative;">
+      <div style="position:absolute;inset:0;background:linear-gradient(to top, rgba(10,10,10,0.85) 0%, rgba(10,10,10,0.15) 55%, transparent 100%);"></div>
+      <div style="position:absolute;bottom:2.5rem;left:2.5rem;right:2.5rem;z-index:10;">
+        <p style="font-size:0.65rem;letter-spacing:0.2em;text-transform:uppercase;color:#d4a853;margin-bottom:0.75rem;">American West</p>
+        <h2 style="font-size:2.5rem;font-weight:300;margin-bottom:1rem;">Wyoming &amp; Utah</h2>
+        <p style="color:#ccc;max-width:600px;line-height:1.7;font-size:0.95rem;">High desert fly fishing in Wyoming limestone canyons, chasing rainbow trout in water the color of glass. And Goblin Valley at dusk, where the hoodoos turn amber then purple as the sun drops.</p>
+      </div>
+    </div>
+    <div class="photo-grid p-4 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2" data-chapter="west">
+      <img src="photos/travel/file_140---1df557a2-8dee-44ea-a923-dcb66f5943be.jpg" loading="lazy" alt="Rainbow trout in net">
+      <img src="photos/travel/file_141---563a3659-881d-4804-a29f-75b1d3b975a2.jpg" loading="lazy" alt="Trout second angle">
+      <img src="photos/travel/file_142---8b76f8ab-72c1-43e3-bfd1-27c88c05b4bb.jpg" loading="lazy" alt="Wyoming canyon landscape">
+      <img src="photos/travel/file_143---f521283a-c98d-4a83-bc34-a447d046f758.jpg" loading="lazy" alt="Trout macro with fly">
+      <img src="photos/travel/file_144---80b64df7-8698-4f46-9906-19ac440c9b42.jpg" loading="lazy" alt="Trout body detail">
+      <img src="photos/travel/file_145---a67553d7-261e-4622-a22f-4a3887417b96.jpg" loading="lazy" alt="Trout scales">
+      <img src="photos/travel/file_146---c140392a-5cd7-413b-bcdc-3b041b707b37.jpg" loading="lazy" alt="Wyoming fishing">
+    </div>
+  </section>
+
+  <!-- Lightbox -->
+  <div id="lightbox">
+    <span id="lightbox-close">✕</span>
+    <span id="lightbox-prev">‹</span>
+    <img id="lightbox-img" src="" alt="">
+    <span id="lightbox-next">›</span>
+  </div>
+
+  <footer class="px-8 py-12 text-center text-gray-600 text-sm border-t border-gray-900">
+    <p>© 2025 Henry Meehan · <a href="index.html" class="hover:text-amber-500" style="text-decoration:none;color:#666;">Home</a></p>
+  </footer>
+
+  <script>
+    let allImgs = [], currentIdx = 0;
+    function openLightbox(imgs, idx) {
+      allImgs = imgs; currentIdx = idx;
+      const lb = document.getElementById('lightbox');
+      document.getElementById('lightbox-img').src = allImgs[currentIdx];
+      lb.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeLightbox() {
+      document.getElementById('lightbox').classList.remove('open');
+      document.body.style.overflow = '';
+    }
+    function navigate(dir) {
+      currentIdx = (currentIdx + dir + allImgs.length) % allImgs.length;
+      document.getElementById('lightbox-img').src = allImgs[currentIdx];
+    }
+    document.querySelectorAll('.photo-grid').forEach(grid => {
+      const imgs = Array.from(grid.querySelectorAll('img')).map(i => i.src);
+      grid.querySelectorAll('img').forEach((img, idx) => {
+        img.addEventListener('click', () => openLightbox(imgs, idx));
+      });
+    });
+    document.getElementById('lightbox-close').addEventListener('click', closeLightbox);
+    document.getElementById('lightbox-prev').addEventListener('click', () => navigate(-1));
+    document.getElementById('lightbox-next').addEventListener('click', () => navigate(1));
+    document.getElementById('lightbox').addEventListener('click', e => { if(e.target === e.currentTarget) closeLightbox(); });
+    document.addEventListener('keydown', e => {
+      if (!document.getElementById('lightbox').classList.contains('open')) return;
+      if (e.key === 'Escape') closeLightbox();
+      if (e.key === 'ArrowLeft') navigate(-1);
+      if (e.key === 'ArrowRight') navigate(1);
+    });
+  </script>
+</body>
+</html>

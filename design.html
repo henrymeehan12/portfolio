@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Design & Engineering — Henry Meehan</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { background: #0a0a0a; color: #e8e8e8; font-family: 'Inter', sans-serif; }
+    .project-hero { height: 60vh; background-size: cover; background-position: center; position: relative; }
+    .photo-grid img { width: 100%; aspect-ratio: 4/3; object-fit: cover; cursor: pointer; transition: opacity 0.2s; display: block; }
+    .photo-grid img:hover { opacity: 0.85; }
+    #lightbox { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.95); z-index: 1000; align-items: center; justify-content: center; }
+    #lightbox.open { display: flex; }
+    #lightbox img { max-height: 90vh; max-width: 90vw; object-fit: contain; }
+    #lightbox-close { position: absolute; top: 20px; right: 24px; font-size: 2rem; cursor: pointer; color: #aaa; }
+    #lightbox-close:hover { color: white; }
+    #lightbox-prev, #lightbox-next { position: absolute; top: 50%; transform: translateY(-50%); font-size: 2rem; cursor: pointer; color: #aaa; padding: 20px; }
+    #lightbox-prev:hover, #lightbox-next:hover { color: #d4a853; }
+    #lightbox-prev { left: 10px; }
+    #lightbox-next { right: 10px; }
+  </style>
+</head>
+<body>
+  <nav class="fixed top-0 w-full z-50 px-6 py-4 flex items-center justify-between" style="background: rgba(10,10,10,0.95); border-bottom: 1px solid #1a1a1a;">
+    <a href="index.html" style="font-size:0.875rem;font-weight:500;letter-spacing:0.15em;text-transform:uppercase;color:#e8e8e8;text-decoration:none;">Henry Meehan</a>
+    <div class="flex gap-8 text-sm" style="color:#999;">
+      <a href="photography.html" style="text-decoration:none;color:#999;" onmouseover="this.style.color='#d4a853'" onmouseout="this.style.color='#999'">Photography</a>
+      <a href="design.html" style="text-decoration:none;color:#d4a853;">Design</a>
+      <a href="about.html" style="text-decoration:none;color:#999;" onmouseover="this.style.color='#d4a853'" onmouseout="this.style.color='#999'">About</a>
+      <a href="contact.html" style="text-decoration:none;color:#999;" onmouseover="this.style.color='#d4a853'" onmouseout="this.style.color='#999'">Contact</a>
+    </div>
+  </nav>
+
+  <div style="padding-top:57px;">
+    <!-- Header -->
+    <div class="px-8 py-16 border-b" style="border-color:#1a1a1a;">
+      <p style="font-size:0.65rem;letter-spacing:0.2em;text-transform:uppercase;color:#d4a853;margin-bottom:1rem;">Portfolio</p>
+      <h1 style="font-size:3rem;font-weight:300;margin-bottom:1rem;">Design &amp; Engineering</h1>
+      <p style="color:#999;max-width:600px;line-height:1.7;">Industrial design background, product engineering by trade. These are the projects where thinking and making happened in the same room.</p>
+    </div>
+
+    <!-- ============ GUITAR BUILD ============ -->
+    <section class="border-b" style="border-color:#1a1a1a;">
+      <div class="project-hero" style="background-image: url('photos/design/file_153---159a0120-49c3-4fc2-a95a-1a4f5dd841db.jpg');">
+        <div style="position:absolute;inset:0;background:linear-gradient(to top, rgba(10,10,10,0.85), rgba(10,10,10,0.1));"></div>
+        <div style="position:absolute;bottom:2.5rem;left:2.5rem;z-index:10;">
+          <p style="font-size:0.65rem;letter-spacing:0.2em;text-transform:uppercase;color:#d4a853;margin-bottom:0.75rem;">Project 01</p>
+          <h2 style="font-size:2.25rem;font-weight:300;margin-bottom:0.75rem;">Guitar Building</h2>
+          <p style="color:#ccc;max-width:550px;line-height:1.7;font-size:0.9rem;">Three electric guitars built from raw wood blanks. Figured maple tops, mahogany bodies, bird inlay fretboards, and custom airbrush finishes mixed from scratch. The process: sketch on paper → body design in Illustrator → glue-up → shaping → neck fitting → 60+ color airbrush system.</p>
+        </div>
+      </div>
+      <div class="photo-grid p-4 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2" data-chapter="guitar">
+        <img src="photos/design/file_147---d48a5864-2e0b-47dd-856c-132ee1d43bf8.jpg" loading="lazy" alt="Guitar flame maple body">
+        <img src="photos/design/file_148---650dc07e-7475-434f-a236-c77a479c27e0.jpg" loading="lazy" alt="Guitar body with pickups">
+        <img src="photos/design/file_149---d3a224ce-12dd-4b2f-9cd3-2e93dee1d7a1.jpg" loading="lazy" alt="Guitar neck fitting">
+        <img src="photos/design/file_150---c1fb84d7-6f5d-410f-9494-72787ed4a184.jpg" loading="lazy" alt="Guitar body edge profile">
+        <img src="photos/design/file_151---1b7468f8-a90a-41a6-8817-7775c7b960fe.jpg" loading="lazy" alt="Mahogany body detail">
+        <img src="photos/design/file_152---9c68af2a-0260-46ba-8bf0-cfa5e0063cc8.jpg" loading="lazy" alt="Body edge close-up">
+        <img src="photos/design/file_153---159a0120-49c3-4fc2-a95a-1a4f5dd841db.jpg" loading="lazy" alt="Three guitars leaned against wall">
+        <img src="photos/design/file_154---6fde08e5-9e0c-4c4a-bb77-1cb7933d50f3.jpg" loading="lazy" alt="Four bodies on workbench">
+        <img src="photos/design/file_155---0f68708c-67b1-43eb-8fca-7cb9ae26ff76.jpg" loading="lazy" alt="Bodies workbench angle">
+        <img src="photos/design/file_156---18267445-f115-4fd2-997f-92d7e34cdbe9.jpg" loading="lazy" alt="Quilted maple neck fitting">
+        <img src="photos/design/file_157---1e7a2cb6-e565-4d55-a29f-345e9ed39ee9.jpg" loading="lazy" alt="Chisel neck pocket">
+        <img src="photos/design/file_158---48968b7f-3e74-42cd-814f-4ddc18548c93.jpg" loading="lazy" alt="Glue-up clamps overhead">
+        <img src="photos/design/file_159---d286a786-a138-4cbc-951a-ceb0b515d75e.jpg" loading="lazy" alt="Glue squeeze-out macro">
+        <img src="photos/design/file_165---72a7a6fd-2fa7-456a-9544-309f0b9c8ad4.jpg" loading="lazy" alt="Guitar sketchbook thumbnails">
+        <img src="photos/design/file_166---b3246583-915f-4a8e-af19-10dc9626daf4.jpg" loading="lazy" alt="Adobe Illustrator body vector">
+        <img src="photos/design/file_168---c60aaf7e-ff09-4a33-88a6-1eda82c58aaf.jpg" loading="lazy" alt="Airbrush color cups organized">
+        <img src="photos/design/file_169---de5bf691-0a76-41f4-91d8-dbfe82de4db3.jpg" loading="lazy" alt="60+ airbrush color system">
+        <img src="photos/design/file_198---508679ca-fa7d-4193-891a-fad68a7df2ed.jpg" loading="lazy" alt="Les Paul illustration WIP">
+        <img src="photos/design/file_199---21c92bd4-b239-4822-8962-0bbe35221565.jpg" loading="lazy" alt="Les Paul illustration finished">
+      </div>
+    </section>
+
+    <!-- ============ COLOR THEORY ============ -->
+    <section class="border-b" style="border-color:#1a1a1a;">
+      <div class="project-hero" style="background-image: url('photos/design/file_170---b6070723-a4e9-45ba-8571-d97d6868f2b0.jpg');">
+        <div style="position:absolute;inset:0;background:linear-gradient(to top, rgba(10,10,10,0.85), rgba(10,10,10,0.1));"></div>
+        <div style="position:absolute;bottom:2.5rem;left:2.5rem;z-index:10;">
+          <p style="font-size:0.65rem;letter-spacing:0.2em;text-transform:uppercase;color:#d4a853;margin-bottom:0.75rem;">Project 02</p>
+          <h2 style="font-size:2.25rem;font-weight:300;margin-bottom:0.75rem;">Color Theory &amp; Visual Design</h2>
+          <p style="color:#ccc;max-width:550px;line-height:1.7;font-size:0.9rem;">Foundation coursework from industrial design school. Systematic color progressions built from hand-cut paper and mixed gouache. Every color in the composition labeled, mixed to a specific value, placed intentionally. Copic marker product illustrations done to the same level of rigor.</p>
+        </div>
+      </div>
+      <div class="photo-grid p-4 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2" data-chapter="color">
+        <img src="photos/design/file_170---b6070723-a4e9-45ba-8571-d97d6868f2b0.jpg" loading="lazy" alt="Triangle color composition">
+        <img src="photos/design/file_171---5fb3badb-d08c-45b6-b66d-7774dc61c285.jpg" loading="lazy" alt="Color theory triangles 2">
+        <img src="photos/design/file_172---26d8b84e-7a35-450b-af61-6786ef83ad30.jpg" loading="lazy" alt="Color theory triangles 3">
+        <img src="photos/design/file_173---9857f89b-f1f5-443c-bea2-7b2e257516f9.jpg" loading="lazy" alt="Geometric stripe composition">
+        <img src="photos/design/file_174---93218e5f-d305-4a7d-8e2b-a0b0fa672a0e.jpg" loading="lazy" alt="Color stripes 2">
+        <img src="photos/design/file_175---ea291942-6a88-4a25-8fb9-86c682b435e6.jpg" loading="lazy" alt="Studio workspace overhead">
+        <img src="photos/design/file_176---fd79b707-9f84-4935-8177-47ae2bc277aa.jpg" loading="lazy" alt="Studio workspace front">
+        <img src="photos/design/file_177---c0467864-e3bc-4814-9037-63ed6e67e636.jpg" loading="lazy" alt="Color composition in progress">
+        <img src="photos/design/file_178---0671fa92-f9a5-4865-870a-50cb58c1ef9a.jpg" loading="lazy" alt="Color planning chart">
+        <img src="photos/design/file_179---c82ed8c7-d47c-4951-ab51-c78341c394f6.jpg" loading="lazy" alt="Illustrator color iterations">
+        <img src="photos/design/file_180---028eefc5-a62d-4aa9-aa89-b5aec8d0767e.jpg" loading="lazy" alt="Color compositions finished">
+        <img src="photos/design/file_181---99548c5d-6378-417f-b9c1-51c217bf55b7.jpg" loading="lazy" alt="Illustrator transparency">
+        <img src="photos/design/file_182---0cc5a6d4-376c-4be7-aae2-7e4598a5e371.jpg" loading="lazy" alt="Digital color design">
+        <img src="photos/design/file_184---47718567-0106-473e-a8bc-ee4935ec25ed.jpg" loading="lazy" alt="Drill redesign sketch">
+      </div>
+    </section>
+
+    <!-- ============ NEXFORM ============ -->
+    <section class="px-8 py-20 border-b" style="border-color:#1a1a1a;">
+      <div class="max-w-3xl">
+        <p style="font-size:0.65rem;letter-spacing:0.2em;text-transform:uppercase;color:#d4a853;margin-bottom:1rem;">Project 03 — In Progress</p>
+        <h2 style="font-size:2.25rem;font-weight:300;margin-bottom:1.5rem;">NEXFORM</h2>
+        <p style="color:#ccc;line-height:1.8;margin-bottom:1.5rem;font-size:1rem;">An autonomous engineering system that reads technical manufacturing drawings, extracts geometry and dimensions using computer vision, and builds 3D CAD models without human input.</p>
+        <p style="color:#999;line-height:1.8;margin-bottom:1.5rem;">The pipeline runs from raw PDF blueprints → OCR + YOLO detection → geometry extraction → SolidWorks/Inventor COM automation → DXF output ready for laser cutting and press brake programming. Built on Python, trained on thousands of real shop drawings.</p>
+        <p style="color:#999;line-height:1.8;margin-bottom:2rem;">This is the intersection of product engineering knowledge and software — ten years of understanding how parts get made, automated.</p>
+        <div class="grid grid-cols-3 gap-6 border-t pt-8" style="border-color:#1a1a1a;">
+          <div>
+            <p style="font-size:0.65rem;letter-spacing:0.15em;text-transform:uppercase;color:#d4a853;margin-bottom:0.5rem;">SMART STEEL</p>
+            <p style="color:#999;font-size:0.875rem;line-height:1.6;">PDF → geometry extraction. OCR + computer vision pipeline reading drawings the way an engineer would.</p>
+          </div>
+          <div>
+            <p style="font-size:0.65rem;letter-spacing:0.15em;text-transform:uppercase;color:#d4a853;margin-bottom:0.5rem;">FORGE</p>
+            <p style="color:#999;font-size:0.875rem;line-height:1.6;">Geometry → 3D model. COM automation layer that drives CAD software via extracted parameters.</p>
+          </div>
+          <div>
+            <p style="font-size:0.65rem;letter-spacing:0.15em;text-transform:uppercase;color:#d4a853;margin-bottom:0.5rem;">EZDIM</p>
+            <p style="color:#999;font-size:0.875rem;line-height:1.6;">3D model → validated DXF. Dimensioning and blueprint verification before the part goes to the shop floor.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- Lightbox -->
+  <div id="lightbox">
+    <span id="lightbox-close">✕</span>
+    <span id="lightbox-prev">‹</span>
+    <img id="lightbox-img" src="" alt="">
+    <span id="lightbox-next">›</span>
+  </div>
+
+  <footer class="px-8 py-12 text-center border-t" style="border-color:#1a1a1a;color:#444;font-size:0.875rem;">
+    <p>© 2025 Henry Meehan · <a href="index.html" style="text-decoration:none;color:#666;">Home</a></p>
+  </footer>
+
+  <script>
+    let allImgs = [], currentIdx = 0;
+    function openLightbox(imgs, idx) {
+      allImgs = imgs; currentIdx = idx;
+      document.getElementById('lightbox-img').src = allImgs[currentIdx];
+      document.getElementById('lightbox').classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeLightbox() {
+      document.getElementById('lightbox').classList.remove('open');
+      document.body.style.overflow = '';
+    }
+    function navigate(dir) {
+      currentIdx = (currentIdx + dir + allImgs.length) % allImgs.length;
+      document.getElementById('lightbox-img').src = allImgs[currentIdx];
+    }
+    document.querySelectorAll('.photo-grid').forEach(grid => {
+      const imgs = Array.from(grid.querySelectorAll('img')).map(i => i.src);
+      grid.querySelectorAll('img').forEach((img, idx) => {
+        img.addEventListener('click', () => openLightbox(imgs, idx));
+      });
+    });
+    document.getElementById('lightbox-close').addEventListener('click', closeLightbox);
+    document.getElementById('lightbox-prev').addEventListener('click', () => navigate(-1));
+    document.getElementById('lightbox-next').addEventListener('click', () => navigate(1));
+    document.getElementById('lightbox').addEventListener('click', e => { if(e.target === e.currentTarget) closeLightbox(); });
+    document.addEventListener('keydown', e => {
+      if (!document.getElementById('lightbox').classList.contains('open')) return;
+      if (e.key === 'Escape') closeLightbox();
+      if (e.key === 'ArrowLeft') navigate(-1);
+      if (e.key === 'ArrowRight') navigate(1);
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Henry Meehan</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: { amber: { 500: '#d4a853' } },
+          fontFamily: { sans: ['Inter', 'sans-serif'] }
+        }
+      }
+    }
+  </script>
+  <style>
+    body { background: #0a0a0a; color: #e8e8e8; font-family: 'Inter', sans-serif; }
+    .hero-img { background-image: url('photos/travel/file_61---78958b98-d757-4aaf-a92c-ef5356f72604.jpg'); }
+    nav a { transition: color 0.2s; }
+    nav a:hover { color: #d4a853; }
+    .card:hover .card-arrow { transform: translateX(4px); }
+    .card-arrow { transition: transform 0.2s; }
+  </style>
+</head>
+<body>
+  <!-- Nav -->
+  <nav class="fixed top-0 w-full z-50 px-6 py-4 flex items-center justify-between" style="background: linear-gradient(to bottom, rgba(10,10,10,0.9), transparent);">
+    <a href="index.html" class="text-sm font-medium tracking-widest uppercase text-white">Henry Meehan</a>
+    <div class="flex gap-8 text-sm text-gray-400">
+      <a href="photography.html" class="hover:text-amber-500">Photography</a>
+      <a href="design.html" class="hover:text-amber-500">Design</a>
+      <a href="about.html" class="hover:text-amber-500">About</a>
+      <a href="contact.html" class="hover:text-amber-500">Contact</a>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <div class="hero-img h-screen bg-cover bg-center relative flex items-end">
+    <div class="absolute inset-0" style="background: linear-gradient(to top, rgba(10,10,10,0.85) 0%, rgba(10,10,10,0.1) 60%, transparent 100%);"></div>
+    <div class="relative z-10 px-8 pb-20 max-w-2xl">
+      <h1 class="text-5xl md:text-7xl font-light tracking-tight mb-4">Henry Meehan</h1>
+      <p class="text-xl text-gray-300 font-light">Product Engineer &amp; Photographer</p>
+    </div>
+  </div>
+
+  <!-- Cards -->
+  <div class="grid md:grid-cols-2 gap-px bg-gray-900" style="background: #111;">
+    <a href="photography.html" class="card group block relative overflow-hidden" style="height: 60vh;">
+      <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('photos/travel/file_113---0cb2ce59-0b8d-412f-90af-0a1882043fb0.jpg');"></div>
+      <div class="absolute inset-0" style="background: linear-gradient(to top, rgba(10,10,10,0.8), rgba(10,10,10,0.1));"></div>
+      <div class="absolute bottom-8 left-8 right-8 z-10">
+        <p class="text-xs tracking-widest uppercase text-amber-500 mb-2">Portfolio</p>
+        <h2 class="text-3xl font-light mb-3">Photography</h2>
+        <p class="text-gray-400 text-sm mb-4">New Zealand · Vietnam · Japan · Thailand · Singapore · Kenya · American West</p>
+        <span class="card-arrow text-amber-500 text-sm inline-flex items-center gap-2">View work →</span>
+      </div>
+    </a>
+    <a href="design.html" class="card group block relative overflow-hidden" style="height: 60vh;">
+      <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('photos/design/file_153---159a0120-49c3-4fc2-a95a-1a4f5dd841db.jpg');"></div>
+      <div class="absolute inset-0" style="background: linear-gradient(to top, rgba(10,10,10,0.8), rgba(10,10,10,0.1));"></div>
+      <div class="absolute bottom-8 left-8 right-8 z-10">
+        <p class="text-xs tracking-widest uppercase text-amber-500 mb-2">Portfolio</p>
+        <h2 class="text-3xl font-light mb-3">Design &amp; Engineering</h2>
+        <p class="text-gray-400 text-sm mb-4">Guitar building · Industrial design · NEXFORM AI system</p>
+        <span class="card-arrow text-amber-500 text-sm inline-flex items-center gap-2">View work →</span>
+      </div>
+    </a>
+  </div>
+
+  <!-- Footer -->
+  <footer class="px-8 py-12 text-center text-gray-600 text-sm border-t border-gray-900">
+    <p>© 2025 Henry Meehan · Birmingham, Alabama</p>
+  </footer>
+</body>
+</html>
