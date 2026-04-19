@@ -158,6 +158,35 @@
     </section>
   </div>
 
+    <!-- ============ HOOKSET PROJECTS ============ -->
+    <section class="border-b" style="border-color:#1a1a1a;">
+      <div style="padding: 5rem 4rem 3rem; max-width: 900px;">
+        <p style="font-size:0.65rem;letter-spacing:0.2em;text-transform:uppercase;color:#d4a853;margin-bottom:0.75rem;">Project 05</p>
+        <h2 style="font-size:2.25rem;font-weight:300;margin-bottom:1.25rem;">HookSet Projects</h2>
+        <p style="color:#ccc;line-height:1.8;margin-bottom:1.5rem;font-size:1rem;">A fishing media and merchandise brand built around Alabama's waterways and the people who fish them. Everything from brand identity and product design to editorial content production, social media, and retail distribution strategy.</p>
+        <p style="color:#999;line-height:1.8;margin-bottom:1.5rem;">The brand covers multiple product lines — Trout T's, Cahaba River Collection, Tired Camper, Alabama Waterways — with apparel and print design for each. The content side produces original long-form articles and photography documenting trips and river ecosystems. Goal: get products into specialty outdoor retailers across the Southeast.</p>
+        <div class="grid grid-cols-3 gap-6 border-t pt-8 mt-8" style="border-color:#1a1a1a;">
+          <div>
+            <p style="font-size:0.65rem;letter-spacing:0.15em;text-transform:uppercase;color:#d4a853;margin-bottom:0.5rem;">Brand Identity</p>
+            <p style="color:#999;font-size:0.875rem;line-height:1.6;">Logo, visual language, product line naming and structure. Four distinct collections with individual identities under one brand.</p>
+          </div>
+          <div>
+            <p style="font-size:0.65rem;letter-spacing:0.15em;text-transform:uppercase;color:#d4a853;margin-bottom:0.5rem;">Content Production</p>
+            <p style="color:#999;font-size:0.875rem;line-height:1.6;">Original editorial articles, photography, and social media. Documenting Alabama waterways and the fishing culture around them.</p>
+          </div>
+          <div>
+            <p style="font-size:0.65rem;letter-spacing:0.15em;text-transform:uppercase;color:#d4a853;margin-bottom:0.5rem;">Business Development</p>
+            <p style="color:#999;font-size:0.875rem;line-height:1.6;">E-commerce on Shopify. Targeting specialty outdoor retailers: The Pants Store, Mountain High, Alabama Outdoors, Onward Reserve.</p>
+          </div>
+        </div>
+        <div class="mt-8">
+          <a href="https://hooksetprojects.com" target="_blank" rel="noopener" style="display:inline-block;border:1px solid #333;color:#999;padding:0.6rem 1.5rem;text-decoration:none;font-size:0.8rem;letter-spacing:0.1em;text-transform:uppercase;" onmouseover="this.style.borderColor='#d4a853';this.style.color='#d4a853'" onmouseout="this.style.borderColor='#333';this.style.color='#999'">hooksetprojects.com ↗</a>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
   <!-- Lightbox -->
   <div id="lightbox">
     <span id="lightbox-close">✕</span>
@@ -186,6 +215,7 @@
       currentIdx = (currentIdx + dir + allImgs.length) % allImgs.length;
       document.getElementById('lightbox-img').src = allImgs[currentIdx];
     }
+    // Hookset projects section links
     document.querySelectorAll('.photo-grid').forEach(grid => {
       const imgs = Array.from(grid.querySelectorAll('img')).map(i => i.src);
       grid.querySelectorAll('img').forEach((img, idx) => {
