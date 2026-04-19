@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Montana — Henry Meehan</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: #0a0a0a; color: #e8e8e8; font-family: 'Inter', sans-serif; }
+    nav a { transition: color 0.2s; }
+    .essay-grid { display: grid; gap: 3px; }
+    .essay-grid.cols-2 { grid-template-columns: 1fr 1fr; }
+    .essay-grid.cols-3 { grid-template-columns: 1fr 1fr 1fr; }
+    .essay-grid.cols-2-1 { grid-template-columns: 2fr 1fr; }
+    .essay-full { margin: 3px 0; }
+    .essay-full img, .essay-grid img { width: 100%; display: block; object-fit: cover; cursor: pointer; transition: opacity 0.2s; }
+    .essay-full img:hover, .essay-grid img:hover { opacity: 0.88; }
+    .img-wide { aspect-ratio: 16/9; }
+    .img-sq { aspect-ratio: 1/1; }
+    .img-tall { aspect-ratio: 3/4; }
+    .img-cinema { aspect-ratio: 21/9; }
+  </style>
+</head>
+<body>
+
+  <!-- Nav -->
+  <nav class="fixed top-0 w-full z-50 px-6 py-4 flex items-center justify-between" style="background: rgba(10,10,10,0.95); border-bottom: 1px solid #1a1a1a;">
+    <a href="../index.html" style="font-size:0.875rem;font-weight:500;letter-spacing:0.15em;text-transform:uppercase;color:#e8e8e8;text-decoration:none;">Henry Meehan</a>
+    <div class="flex gap-8 text-sm">
+      <a href="../photography.html" style="text-decoration:none;color:#d4a853;">Photography</a>
+      <a href="../design.html" style="text-decoration:none;color:#999;" onmouseover="this.style.color='#d4a853'" onmouseout="this.style.color='#999'">Design</a>
+      <a href="../about.html" style="text-decoration:none;color:#999;" onmouseover="this.style.color='#d4a853'" onmouseout="this.style.color='#999'">About</a>
+      <a href="../contact.html" style="text-decoration:none;color:#999;" onmouseover="this.style.color='#d4a853'" onmouseout="this.style.color='#999'">Contact</a>
+    </div>
+  </nav>
+
+  <!-- Back bar -->
+  <div style="margin-top:57px;border-bottom:1px solid #1a1a1a;padding:0.75rem 2rem;display:flex;justify-content:space-between;align-items:center;background:#0a0a0a;">
+    <a href="../photography.html" style="color:#999;text-decoration:none;font-size:0.75rem;letter-spacing:0.12em;text-transform:uppercase;" onmouseover="this.style.color='#d4a853'" onmouseout="this.style.color='#999'">← Photography</a>
+    <span style="color:#444;font-size:0.75rem;letter-spacing:0.1em;text-transform:uppercase;">01 · Montana · 2019–2024</span>
+  </div>
+
+  <!-- Hero -->
+  <div style="height:88vh;background-image:url('../photos/travel/file_641---3d921487-bedd-48dc-98a9-8bc955195295.jpg');background-size:cover;background-position:center;position:relative;">
+    <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(10,10,10,0.5) 0%,rgba(10,10,10,0.0) 50%);"></div>
+  </div>
+
+  <!-- Story header -->
+  <div style="max-width:760px;margin:0 auto;padding:4rem 2rem 2rem;text-align:center;">
+    <div style="font-size:0.6rem;letter-spacing:0.25em;text-transform:uppercase;color:#d4a853;margin-bottom:1rem;">01 · Montana · 2019–2024</div>
+    <h1 style="font-size:2.5rem;font-weight:300;line-height:1.1;margin-bottom:1rem;">The Madison River</h1>
+    <div style="font-size:0.75rem;letter-spacing:0.15em;text-transform:uppercase;color:#555;">Montana, USA</div>
+  </div>
+
+  <!-- Story body -->
+  <div style="max-width:680px;margin:0 auto;padding:0 2rem 3rem;color:#ccc;line-height:1.9;font-size:0.95rem;font-weight:300;">
+    <p style="margin-bottom:1.5rem;">In 2017 I went on my first fly fishing trip to Montana with Lillard Fly Fishing Expeditions. I went back every summer. In 2019 Will Lillard asked if I'd guide for him.</p>
+    <p style="margin-bottom:1.5rem;">Six seasons on the Madison River. The entomology curriculum — kick nets, macroinvertebrate sampling, matching insects to flies — runs through every day on the water. I've watched kids hold a fly rod for the first time and make a cast that a grown guide would be proud of.</p>
+    <p>The fawn walked up to me while I was rigging a rod on a gravel bar. I wasn't expecting it. I wasn't fishing anymore.</p>
+  </div>
+
+  <!-- Photo essay -->
+  <div style="max-width:1400px;margin:0 auto;padding:0 3px;">
+
+    <div class="essay-full">
+      <img class="img-wide" src="../photos/travel/file_573---d691d30e-ef6d-4c06-9d59-2f18faa10b38.jpg" alt="Anglers walking to the river">
+    </div>
+
+    <div class="essay-grid cols-2" style="margin:3px 0;">
+      <img class="img-sq" src="../photos/travel/file_560---f3a94d16-801d-4607-bace-e4765db79191.jpg" alt="Entomology lesson">
+      <img class="img-sq" src="../photos/travel/file_539---85b1b3d2-3493-484b-a2e4-7032ab1a13ba.jpg" alt="Fawn face-to-face">
+    </div>
+
+    <div class="essay-grid cols-3" style="margin:3px 0;">
+      <img class="img-tall" src="../photos/travel/file_568---dfb8e2cf-0a67-44e2-b533-c9b436c746e1.jpg" alt="Kid casting">
+      <img class="img-tall" src="../photos/travel/file_547---22e2138e-308f-43bd-be9b-9ea588ca212b.jpg" alt="Brown trout">
+      <img class="img-tall" src="../photos/travel/file_606---b3997a1a-b5a6-42f4-ad24-a6191933cac7.jpg" alt="Rainbow trout">
+    </div>
+
+    <div class="essay-full">
+      <img class="img-wide" src="../photos/travel/file_712---6be7a64e-af13-46ad-a294-22d60190b2eb.jpg" alt="Woman wading, lenticular cloud">
+    </div>
+
+    <div class="essay-grid cols-2-1" style="margin:3px 0;">
+      <img class="img-wide" src="../photos/travel/file_610---8e0b0122-e022-4592-bd20-f6a1f9482a12.jpg" alt="Release, Tobacco Roots">
+      <img class="img-wide" src="../photos/travel/file_564---8362abae-3c78-4f43-ad1d-917786a62cda.jpg" alt="Campfire blue hour">
+    </div>
+
+    <div class="essay-grid cols-3" style="margin:3px 0;">
+      <img class="img-tall" src="../photos/travel/file_711---3c16c10b-4d08-444f-935e-9117b7016772.jpg" alt="Kid casting sky">
+      <img class="img-tall" src="../photos/travel/file_716---d63d4881-36b8-4d85-9784-f0b40b4e4ba7.jpg" alt="Reed grass stoneflies">
+      <img class="img-tall" src="../photos/travel/file_717---58d9851a-4545-4ade-9515-d6094e981526.jpg" alt="Caddisfly macro">
+    </div>
+
+    <div class="essay-grid cols-2" style="margin:3px 0;">
+      <img class="img-wide" src="../photos/travel/file_554---b5a3bc20-8202-4085-82a8-6525e92c14e2.jpg" alt="God rays over ridge">
+      <img class="img-wide" src="../photos/travel/file_532---1a698ae0-0918-4121-b2ad-ddaae846850f.jpg" alt="Brown trout in net">
+    </div>
+
+  </div>
+
+  <!-- Chapter nav -->
+  <div style="display:flex;border-top:1px solid #1a1a1a;margin-top:6px;">
+    <a href="../photography.html" style="flex:1;padding:2rem;text-decoration:none;color:#999;font-size:0.8rem;letter-spacing:0.1em;text-transform:uppercase;" onmouseover="this.style.color='#d4a853'" onmouseout="this.style.color='#999'">← All Chapters</a>
+    <a href="wyoming.html" style="flex:1;padding:2rem;text-align:right;text-decoration:none;color:#999;font-size:0.8rem;letter-spacing:0.1em;text-transform:uppercase;" onmouseover="this.style.color='#d4a853'" onmouseout="this.style.color='#999'">Next: Wyoming →</a>
+  </div>
+
+  <!-- Footer -->
+  <footer style="padding:3rem 2rem;text-align:center;color:#555;font-size:0.8rem;border-top:1px solid #111;">
+    © 2025 Henry Meehan · Birmingham, Alabama
+  </footer>
+
+  <!-- Lightbox -->
+  <div id="lightbox" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.96);z-index:1000;align-items:center;justify-content:center;">
+    <span onclick="closeLb()" style="position:fixed;top:1.5rem;right:2rem;color:#999;font-size:1.5rem;cursor:pointer;">✕</span>
+    <button onclick="shiftLb(-1)" style="position:fixed;left:1rem;top:50%;transform:translateY(-50%);color:#999;font-size:2.5rem;background:none;border:none;cursor:pointer;">‹</button>
+    <img id="lb-img" src="" style="max-height:92vh;max-width:92vw;object-fit:contain;">
+    <button onclick="shiftLb(1)" style="position:fixed;right:1rem;top:50%;transform:translateY(-50%);color:#999;font-size:2.5rem;background:none;border:none;cursor:pointer;">›</button>
+  </div>
+  <script>
+    const imgs = Array.from(document.querySelectorAll('.essay-grid img,.essay-full img'));
+    let cur = 0;
+    imgs.forEach((img,i) => img.addEventListener('click',()=>{cur=i;openLb(img.src);}));
+    function openLb(src){document.getElementById('lb-img').src=src;document.getElementById('lightbox').style.display='flex';document.body.style.overflow='hidden';}
+    function closeLb(){document.getElementById('lightbox').style.display='none';document.body.style.overflow='';}
+    function shiftLb(d){cur=(cur+d+imgs.length)%imgs.length;document.getElementById('lb-img').src=imgs[cur].src;}
+    document.getElementById('lightbox').addEventListener('click',function(e){if(e.target===this)closeLb();});
+    document.addEventListener('keydown',e=>{if(document.getElementById('lightbox').style.display==='flex'){if(e.key==='Escape')closeLb();if(e.key==='ArrowRight')shiftLb(1);if(e.key==='ArrowLeft')shiftLb(-1);}});
+  </script>
+</body>
+</html>

@@ -3,29 +3,68 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Design & Engineering — Henry Meehan</title>
+  <title>Design — Henry Meehan</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
     body { background: #0a0a0a; color: #e8e8e8; font-family: 'Inter', sans-serif; }
-    .project-hero { height: 60vh; background-size: cover; background-position: center; position: relative; }
-    .photo-grid img { width: 100%; aspect-ratio: 4/3; object-fit: cover; cursor: pointer; transition: opacity 0.2s; display: block; }
-    .photo-grid img:hover { opacity: 0.85; }
-    #lightbox { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.95); z-index: 1000; align-items: center; justify-content: center; }
-    #lightbox.open { display: flex; }
-    #lightbox img { max-height: 90vh; max-width: 90vw; object-fit: contain; }
-    #lightbox-close { position: absolute; top: 20px; right: 24px; font-size: 2rem; cursor: pointer; color: #aaa; }
-    #lightbox-close:hover { color: white; }
-    #lightbox-prev, #lightbox-next { position: absolute; top: 50%; transform: translateY(-50%); font-size: 2rem; cursor: pointer; color: #aaa; padding: 20px; }
-    #lightbox-prev:hover, #lightbox-next:hover { color: #d4a853; }
-    #lightbox-prev { left: 10px; }
-    #lightbox-next { right: 10px; }
+    nav a { transition: color 0.2s; }
+
+    .essay-grid { display: grid; gap: 3px; }
+    .essay-grid.cols-2 { grid-template-columns: 1fr 1fr; }
+    .essay-grid.cols-3 { grid-template-columns: 1fr 1fr 1fr; }
+    .essay-grid.cols-2-1 { grid-template-columns: 2fr 1fr; }
+    .essay-grid.cols-1-2 { grid-template-columns: 1fr 2fr; }
+    .essay-full { margin: 3px 0; }
+    .essay-full img, .essay-grid img { width: 100%; display: block; object-fit: cover; cursor: pointer; transition: opacity 0.2s; }
+    .essay-full img:hover, .essay-grid img:hover { opacity: 0.88; }
+    .img-wide { aspect-ratio: 16/9; }
+    .img-sq { aspect-ratio: 1/1; }
+    .img-tall { aspect-ratio: 3/4; }
+
+    .section-label {
+      font-size: 0.6rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: #d4a853;
+      margin-bottom: 0.75rem;
+    }
+    .section-title {
+      font-size: 2rem;
+      font-weight: 300;
+      line-height: 1.15;
+      margin-bottom: 1rem;
+    }
+    .section-body {
+      color: #ccc;
+      font-size: 0.9rem;
+      line-height: 1.85;
+      font-weight: 300;
+    }
+    .case-study-block {
+      padding: 5rem 0;
+      border-top: 1px solid #1a1a1a;
+    }
+    .case-meta {
+      display: flex;
+      gap: 3rem;
+      margin-top: 2rem;
+      padding-top: 2rem;
+      border-top: 1px solid #1a1a1a;
+    }
+    .meta-item { flex: 1; }
+    .meta-label { font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase; color: #555; margin-bottom: 0.4rem; }
+    .meta-value { font-size: 0.85rem; color: #999; font-weight: 300; }
   </style>
 </head>
 <body>
+
+  <!-- Nav -->
   <nav class="fixed top-0 w-full z-50 px-6 py-4 flex items-center justify-between" style="background: rgba(10,10,10,0.95); border-bottom: 1px solid #1a1a1a;">
     <a href="index.html" style="font-size:0.875rem;font-weight:500;letter-spacing:0.15em;text-transform:uppercase;color:#e8e8e8;text-decoration:none;">Henry Meehan</a>
-    <div class="flex gap-8 text-sm" style="color:#999;">
+    <div class="flex gap-8 text-sm">
       <a href="photography.html" style="text-decoration:none;color:#999;" onmouseover="this.style.color='#d4a853'" onmouseout="this.style.color='#999'">Photography</a>
       <a href="design.html" style="text-decoration:none;color:#d4a853;">Design</a>
       <a href="about.html" style="text-decoration:none;color:#999;" onmouseover="this.style.color='#d4a853'" onmouseout="this.style.color='#999'">About</a>
@@ -33,205 +72,151 @@
     </div>
   </nav>
 
-  <div style="padding-top:57px;">
-    <!-- Header -->
-    <div class="px-8 py-16 border-b" style="border-color:#1a1a1a;">
-      <p style="font-size:0.65rem;letter-spacing:0.2em;text-transform:uppercase;color:#d4a853;margin-bottom:1rem;">Portfolio</p>
-      <h1 style="font-size:3rem;font-weight:300;margin-bottom:1rem;">Design &amp; Engineering</h1>
-      <p style="color:#999;max-width:600px;line-height:1.7;">Industrial design background, product engineering by trade. These are the projects where thinking and making happened in the same room.</p>
+  <!-- Hero -->
+  <div style="margin-top:57px;height:75vh;background-image:url('photos/design/file_667---0dd4e21e-ee25-4ad4-b3e6-895393282635.jpg');background-size:cover;background-position:center;position:relative;">
+    <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(10,10,10,0.85) 0%,rgba(10,10,10,0.1) 60%,transparent 100%);"></div>
+    <div style="position:absolute;bottom:0;left:0;right:0;padding:3rem 4rem;">
+      <div style="font-size:0.6rem;letter-spacing:0.25em;text-transform:uppercase;color:#d4a853;margin-bottom:0.75rem;">Design &amp; Engineering</div>
+      <h1 style="font-size:3.5rem;font-weight:300;line-height:1.05;max-width:700px;">Design as a way<br>of thinking.</h1>
+    </div>
+  </div>
+
+  <!-- Intro -->
+  <div style="max-width:760px;margin:0 auto;padding:5rem 2rem 3rem;">
+    <p style="color:#ccc;font-size:1rem;line-height:1.9;font-weight:300;">Industrial design training at Auburn. Six years building things — guitars, furniture, leather goods — alongside product engineering work in metal fabrication. Design and making aren't separate disciplines for me. They inform each other constantly.</p>
+  </div>
+
+  <!-- ─── CASE STUDY 1: Gibson Frethaus ─── -->
+  <div style="max-width:1400px;margin:0 auto;padding:0 3px;">
+
+    <div style="max-width:760px;margin:0 auto;padding:3rem 2rem 2rem;">
+      <div class="section-label">01 · Live Music Experience</div>
+      <h2 class="section-title">Gibson Frethaus</h2>
+      <p class="section-body">A live guitar-building experience at Gibson Garage Nashville. Participants build a working electric guitar over two days — picking woods, routing cavities, wiring pickups, setting up action. I helped design the curriculum and participated in a pilot cohort.</p>
+      <div class="case-meta">
+        <div class="meta-item">
+          <div class="meta-label">Role</div>
+          <div class="meta-value">Curriculum design · Participant</div>
+        </div>
+        <div class="meta-item">
+          <div class="meta-label">Location</div>
+          <div class="meta-value">Gibson Garage, Nashville</div>
+        </div>
+        <div class="meta-item">
+          <div class="meta-label">Year</div>
+          <div class="meta-value">2024</div>
+        </div>
+      </div>
     </div>
 
-    <!-- ============ ILLUSTRATION ============ -->
-    <section class="border-b" style="border-color:#1a1a1a;">
-      <div class="project-hero" style="background-image: url('photos/design/file_202---2512e821-d24f-45ae-9165-63917ef7f304.jpg');">
-        <div style="position:absolute;inset:0;background:linear-gradient(to top, rgba(10,10,10,0.85), rgba(10,10,10,0.1));"></div>
-        <div style="position:absolute;bottom:2.5rem;left:2.5rem;z-index:10;">
-          <p style="font-size:0.65rem;letter-spacing:0.2em;text-transform:uppercase;color:#d4a853;margin-bottom:0.75rem;">Project 01</p>
-          <h2 style="font-size:2.25rem;font-weight:300;margin-bottom:0.75rem;">Illustration &amp; Visual Design</h2>
-          <p style="color:#ccc;max-width:550px;line-height:1.7;font-size:0.9rem;">Product illustration, technical drawing, and graphic design from industrial design school. Copic markers, colored pencil, watercolor, and blue-line construction drawing. The Gibson piece went from instrument rendering to a full print advertisement — guitar illustration, original alpine landscape, hand-lettered logo, and product copy.</p>
-        </div>
-      </div>
-      <div class="photo-grid p-4 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2" data-chapter="illustration">
-        <img src="photos/design/file_200---10644904-58ae-4548-b285-816269cb0177.jpg" loading="lazy" alt="Les Paul Copic rendering">
-        <img src="photos/design/file_201---bac49710-85c0-4fdf-8f37-5481222566ef.jpg" loading="lazy" alt="Gibson LP ad layout">
-        <img src="photos/design/file_202---2512e821-d24f-45ae-9165-63917ef7f304.jpg" loading="lazy" alt="Gibson ad campaign full">
-        <img src="photos/design/file_205---a1cd892c-95f7-4a0e-8d68-5cd160f48067.jpg" loading="lazy" alt="Gibson alpine background painting">
-        <img src="photos/design/file_210---994f6dc4-23b2-455f-b9af-d1e4c8524350.jpg" loading="lazy" alt="Les Paul finished rendering">
-        <img src="photos/design/file_203---c4d32716-f996-4047-a3c9-0416449db534.jpg" loading="lazy" alt="Koi fish colored pencil">
-        <img src="photos/design/file_204---d0a23656-1fee-49fc-a816-95cb62aab80d.jpg" loading="lazy" alt="Koi fish study 2">
-        <img src="photos/design/file_206---33a7c289-0e3b-4bec-aeac-0bf3f634691a.jpg" loading="lazy" alt="Blue marlin jumping signed">
-        <img src="photos/design/file_207---b3607366-18b4-490e-9e83-a477690cbca7.jpg" loading="lazy" alt="Red stiletto product rendering">
-        <img src="photos/design/file_184---47718567-0106-473e-a8bc-ee4935ec25ed.jpg" loading="lazy" alt="Drill redesign sketch">
-        <img src="photos/design/file_208---5b15499f-9f07-4056-aedd-212a77ba83a2.jpg" loading="lazy" alt="Industrial fastener isometric">
-        <img src="photos/design/file_209---9dad1a2c-cc1c-4f55-9db8-2cf85c0af63c.jpg" loading="lazy" alt="Apple Macintosh perspective WIP">
-        <img src="photos/design/file_211---c6159692-8288-41d8-855d-43c6da3bece3.jpg" loading="lazy" alt="Apple Macintosh perspective final">
-        <img src="photos/design/file_170---b6070723-a4e9-45ba-8571-d97d6868f2b0.jpg" loading="lazy" alt="Color theory triangle compositions">
-        <img src="photos/design/file_173---9857f89b-f1f5-443c-bea2-7b2e257516f9.jpg" loading="lazy" alt="Color theory stripe compositions">
-        <img src="photos/design/file_179---c82ed8c7-d47c-4951-ab51-c78341c394f6.jpg" loading="lazy" alt="Illustrator color iterations">
-      </div>
-    </section>
+    <div class="essay-full">
+      <img class="img-wide" src="photos/design/file_631---cd2e35fd-7876-4f93-afc5-b88934d240d2.jpg" alt="Full Frethaus class on the Gibson Garage stage">
+    </div>
 
-    <!-- ============ GUITAR BUILD ============ -->
-    <section class="border-b" style="border-color:#1a1a1a;">
-      <div class="project-hero" style="background-image: url('photos/design/file_153---159a0120-49c3-4fc2-a95a-1a4f5dd841db.jpg');">
-        <div style="position:absolute;inset:0;background:linear-gradient(to top, rgba(10,10,10,0.85), rgba(10,10,10,0.1));"></div>
-        <div style="position:absolute;bottom:2.5rem;left:2.5rem;z-index:10;">
-          <p style="font-size:0.65rem;letter-spacing:0.2em;text-transform:uppercase;color:#d4a853;margin-bottom:0.75rem;">Project 02</p>
-          <h2 style="font-size:2.25rem;font-weight:300;margin-bottom:0.75rem;">Guitar Building</h2>
-          <p style="color:#ccc;max-width:550px;line-height:1.7;font-size:0.9rem;">Three electric guitars built from raw wood blanks. Figured maple tops, mahogany bodies, bird inlay fretboards, and custom airbrush finishes mixed from scratch. The process: sketch on paper → body design in Illustrator → glue-up → shaping → neck fitting → 60+ color airbrush system.</p>
-        </div>
-      </div>
-      <div class="photo-grid p-4 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2" data-chapter="guitar">
-        <img src="photos/design/file_147---d48a5864-2e0b-47dd-856c-132ee1d43bf8.jpg" loading="lazy" alt="Guitar flame maple body">
-        <img src="photos/design/file_148---650dc07e-7475-434f-a236-c77a479c27e0.jpg" loading="lazy" alt="Guitar body with pickups">
-        <img src="photos/design/file_149---d3a224ce-12dd-4b2f-9cd3-2e93dee1d7a1.jpg" loading="lazy" alt="Guitar neck fitting">
-        <img src="photos/design/file_150---c1fb84d7-6f5d-410f-9494-72787ed4a184.jpg" loading="lazy" alt="Guitar body edge profile">
-        <img src="photos/design/file_151---1b7468f8-a90a-41a6-8817-7775c7b960fe.jpg" loading="lazy" alt="Mahogany body detail">
-        <img src="photos/design/file_152---9c68af2a-0260-46ba-8bf0-cfa5e0063cc8.jpg" loading="lazy" alt="Body edge close-up">
-        <img src="photos/design/file_153---159a0120-49c3-4fc2-a95a-1a4f5dd841db.jpg" loading="lazy" alt="Three guitars leaned against wall">
-        <img src="photos/design/file_154---6fde08e5-9e0c-4c4a-bb77-1cb7933d50f3.jpg" loading="lazy" alt="Four bodies on workbench">
-        <img src="photos/design/file_155---0f68708c-67b1-43eb-8fca-7cb9ae26ff76.jpg" loading="lazy" alt="Bodies workbench angle">
-        <img src="photos/design/file_156---18267445-f115-4fd2-997f-92d7e34cdbe9.jpg" loading="lazy" alt="Quilted maple neck fitting">
-        <img src="photos/design/file_157---1e7a2cb6-e565-4d55-a29f-345e9ed39ee9.jpg" loading="lazy" alt="Chisel neck pocket">
-        <img src="photos/design/file_158---48968b7f-3e74-42cd-814f-4ddc18548c93.jpg" loading="lazy" alt="Glue-up clamps overhead">
-        <img src="photos/design/file_159---d286a786-a138-4cbc-951a-ceb0b515d75e.jpg" loading="lazy" alt="Glue squeeze-out macro">
-        <img src="photos/design/file_165---72a7a6fd-2fa7-456a-9544-309f0b9c8ad4.jpg" loading="lazy" alt="Guitar sketchbook thumbnails">
-        <img src="photos/design/file_166---b3246583-915f-4a8e-af19-10dc9626daf4.jpg" loading="lazy" alt="Adobe Illustrator body vector">
-        <img src="photos/design/file_168---c60aaf7e-ff09-4a33-88a6-1eda82c58aaf.jpg" loading="lazy" alt="Airbrush color cups organized">
-        <img src="photos/design/file_169---de5bf691-0a76-41f4-91d8-dbfe82de4db3.jpg" loading="lazy" alt="60+ airbrush color system">
-        <img src="photos/design/file_198---508679ca-fa7d-4193-891a-fad68a7df2ed.jpg" loading="lazy" alt="Les Paul illustration WIP">
-        <img src="photos/design/file_199---21c92bd4-b239-4822-8962-0bbe35221565.jpg" loading="lazy" alt="Les Paul illustration finished">
-      </div>
-    </section>
+    <div class="essay-grid cols-3" style="margin:3px 0;">
+      <img class="img-tall" src="photos/design/file_627---0287ece9-5565-4c5d-bba7-a0711417c6c9.jpg" alt="Guitar build">
+      <img class="img-tall" src="photos/design/file_628---0647175c-2be1-4235-a255-ca88c69f9159.jpg" alt="Guitar build">
+      <img class="img-tall" src="photos/design/file_629---4e037ef2-1808-449d-837c-39d5f197a68a.jpg" alt="Guitar build">
+    </div>
 
-    <!-- ============ COLOR THEORY ============ -->
-    <section class="border-b" style="border-color:#1a1a1a;">
-      <div class="project-hero" style="background-image: url('photos/design/file_170---b6070723-a4e9-45ba-8571-d97d6868f2b0.jpg');">
-        <div style="position:absolute;inset:0;background:linear-gradient(to top, rgba(10,10,10,0.85), rgba(10,10,10,0.1));"></div>
-        <div style="position:absolute;bottom:2.5rem;left:2.5rem;z-index:10;">
-          <p style="font-size:0.65rem;letter-spacing:0.2em;text-transform:uppercase;color:#d4a853;margin-bottom:0.75rem;">Project 03</p>
-          <h2 style="font-size:2.25rem;font-weight:300;margin-bottom:0.75rem;">Color Theory &amp; Visual Design</h2>
-          <p style="color:#ccc;max-width:550px;line-height:1.7;font-size:0.9rem;">Foundation coursework from industrial design school. Systematic color progressions built from hand-cut paper and mixed gouache. Every color in the composition labeled, mixed to a specific value, placed intentionally. Copic marker product illustrations done to the same level of rigor.</p>
-        </div>
-      </div>
-      <div class="photo-grid p-4 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2" data-chapter="color">
-        <img src="photos/design/file_170---b6070723-a4e9-45ba-8571-d97d6868f2b0.jpg" loading="lazy" alt="Triangle color composition">
-        <img src="photos/design/file_171---5fb3badb-d08c-45b6-b66d-7774dc61c285.jpg" loading="lazy" alt="Color theory triangles 2">
-        <img src="photos/design/file_172---26d8b84e-7a35-450b-af61-6786ef83ad30.jpg" loading="lazy" alt="Color theory triangles 3">
-        <img src="photos/design/file_173---9857f89b-f1f5-443c-bea2-7b2e257516f9.jpg" loading="lazy" alt="Geometric stripe composition">
-        <img src="photos/design/file_174---93218e5f-d305-4a7d-8e2b-a0b0fa672a0e.jpg" loading="lazy" alt="Color stripes 2">
-        <img src="photos/design/file_175---ea291942-6a88-4a25-8fb9-86c682b435e6.jpg" loading="lazy" alt="Studio workspace overhead">
-        <img src="photos/design/file_176---fd79b707-9f84-4935-8177-47ae2bc277aa.jpg" loading="lazy" alt="Studio workspace front">
-        <img src="photos/design/file_177---c0467864-e3bc-4814-9037-63ed6e67e636.jpg" loading="lazy" alt="Color composition in progress">
-        <img src="photos/design/file_178---0671fa92-f9a5-4865-870a-50cb58c1ef9a.jpg" loading="lazy" alt="Color planning chart">
-        <img src="photos/design/file_179---c82ed8c7-d47c-4951-ab51-c78341c394f6.jpg" loading="lazy" alt="Illustrator color iterations">
-        <img src="photos/design/file_180---028eefc5-a62d-4aa9-aa89-b5aec8d0767e.jpg" loading="lazy" alt="Color compositions finished">
-        <img src="photos/design/file_181---99548c5d-6378-417f-b9c1-51c217bf55b7.jpg" loading="lazy" alt="Illustrator transparency">
-        <img src="photos/design/file_182---0cc5a6d4-376c-4be7-aae2-7e4598a5e371.jpg" loading="lazy" alt="Digital color design">
-        <img src="photos/design/file_184---47718567-0106-473e-a8bc-ee4935ec25ed.jpg" loading="lazy" alt="Drill redesign sketch">
-      </div>
-    </section>
-
-    <!-- ============ NEXFORM ============ -->
-    <section class="px-8 py-20 border-b" style="border-color:#1a1a1a;">
-      <div class="max-w-3xl">
-        <p style="font-size:0.65rem;letter-spacing:0.2em;text-transform:uppercase;color:#d4a853;margin-bottom:1rem;">Project 04 — In Progress</p>
-        <h2 style="font-size:2.25rem;font-weight:300;margin-bottom:1.5rem;">NEXFORM</h2>
-        <p style="color:#ccc;line-height:1.8;margin-bottom:1.5rem;font-size:1rem;">An autonomous engineering system that reads technical manufacturing drawings, extracts geometry and dimensions using computer vision, and builds 3D CAD models without human input.</p>
-        <p style="color:#999;line-height:1.8;margin-bottom:1.5rem;">The pipeline runs from raw PDF blueprints → OCR + YOLO detection → geometry extraction → SolidWorks/Inventor COM automation → DXF output ready for laser cutting and press brake programming. Built on Python, trained on thousands of real shop drawings.</p>
-        <p style="color:#999;line-height:1.8;margin-bottom:2rem;">This is the intersection of product engineering knowledge and software — ten years of understanding how parts get made, automated.</p>
-        <div class="grid grid-cols-3 gap-6 border-t pt-8" style="border-color:#1a1a1a;">
-          <div>
-            <p style="font-size:0.65rem;letter-spacing:0.15em;text-transform:uppercase;color:#d4a853;margin-bottom:0.5rem;">SMART STEEL</p>
-            <p style="color:#999;font-size:0.875rem;line-height:1.6;">PDF → geometry extraction. OCR + computer vision pipeline reading drawings the way an engineer would.</p>
-          </div>
-          <div>
-            <p style="font-size:0.65rem;letter-spacing:0.15em;text-transform:uppercase;color:#d4a853;margin-bottom:0.5rem;">FORGE</p>
-            <p style="color:#999;font-size:0.875rem;line-height:1.6;">Geometry → 3D model. COM automation layer that drives CAD software via extracted parameters.</p>
-          </div>
-          <div>
-            <p style="font-size:0.65rem;letter-spacing:0.15em;text-transform:uppercase;color:#d4a853;margin-bottom:0.5rem;">EZDIM</p>
-            <p style="color:#999;font-size:0.875rem;line-height:1.6;">3D model → validated DXF. Dimensioning and blueprint verification before the part goes to the shop floor.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-  </div>
-
-    <!-- ============ HOOKSET PROJECTS ============ -->
-    <section class="border-b" style="border-color:#1a1a1a;">
-      <div style="padding: 5rem 4rem 3rem; max-width: 900px;">
-        <p style="font-size:0.65rem;letter-spacing:0.2em;text-transform:uppercase;color:#d4a853;margin-bottom:0.75rem;">Project 05</p>
-        <h2 style="font-size:2.25rem;font-weight:300;margin-bottom:1.25rem;">HookSet Projects</h2>
-        <p style="color:#ccc;line-height:1.8;margin-bottom:1.5rem;font-size:1rem;">A fishing media and merchandise brand built around Alabama's waterways and the people who fish them. Everything from brand identity and product design to editorial content production, social media, and retail distribution strategy.</p>
-        <p style="color:#999;line-height:1.8;margin-bottom:1.5rem;">The brand covers multiple product lines — Trout T's, Cahaba River Collection, Tired Camper, Alabama Waterways — with apparel and print design for each. The content side produces original long-form articles and photography documenting trips and river ecosystems. Goal: get products into specialty outdoor retailers across the Southeast.</p>
-        <div class="grid grid-cols-3 gap-6 border-t pt-8 mt-8" style="border-color:#1a1a1a;">
-          <div>
-            <p style="font-size:0.65rem;letter-spacing:0.15em;text-transform:uppercase;color:#d4a853;margin-bottom:0.5rem;">Brand Identity</p>
-            <p style="color:#999;font-size:0.875rem;line-height:1.6;">Logo, visual language, product line naming and structure. Four distinct collections with individual identities under one brand.</p>
-          </div>
-          <div>
-            <p style="font-size:0.65rem;letter-spacing:0.15em;text-transform:uppercase;color:#d4a853;margin-bottom:0.5rem;">Content Production</p>
-            <p style="color:#999;font-size:0.875rem;line-height:1.6;">Original editorial articles, photography, and social media. Documenting Alabama waterways and the fishing culture around them.</p>
-          </div>
-          <div>
-            <p style="font-size:0.65rem;letter-spacing:0.15em;text-transform:uppercase;color:#d4a853;margin-bottom:0.5rem;">Business Development</p>
-            <p style="color:#999;font-size:0.875rem;line-height:1.6;">E-commerce on Shopify. Targeting specialty outdoor retailers: The Pants Store, Mountain High, Alabama Outdoors, Onward Reserve.</p>
-          </div>
-        </div>
-        <div class="mt-8">
-          <a href="https://hooksetprojects.com" target="_blank" rel="noopener" style="display:inline-block;border:1px solid #333;color:#999;padding:0.6rem 1.5rem;text-decoration:none;font-size:0.8rem;letter-spacing:0.1em;text-transform:uppercase;" onmouseover="this.style.borderColor='#d4a853';this.style.color='#d4a853'" onmouseout="this.style.borderColor='#333';this.style.color='#999'">hooksetprojects.com ↗</a>
-        </div>
-      </div>
-    </section>
+    <div class="essay-grid cols-2" style="margin:3px 0;">
+      <img class="img-wide" src="photos/design/file_666---fe5d21b8-bdca-40ec-97c2-729b57f7e12b.jpg" alt="Gibson Garage">
+      <img class="img-wide" src="photos/design/file_668---e6a63c53-4b4e-4839-bb82-6f50f87ce1f3.jpg" alt="Gibson Garage">
+    </div>
 
   </div>
 
-  <!-- Lightbox -->
-  <div id="lightbox">
-    <span id="lightbox-close">✕</span>
-    <span id="lightbox-prev">‹</span>
-    <img id="lightbox-img" src="" alt="">
-    <span id="lightbox-next">›</span>
+  <!-- ─── CASE STUDY 2: Relic Messenger Bag ─── -->
+  <div style="max-width:1400px;margin:0 auto;padding:5rem 3px 0;">
+
+    <div style="max-width:760px;margin:0 auto;padding:0 2rem 2rem;">
+      <div class="section-label">02 · Leather Goods</div>
+      <h2 class="section-title">Relic Messenger</h2>
+      <p class="section-body">A waxed canvas and full-grain leather messenger bag, designed and hand-built from scratch. Every hardware decision, strap attachment, and stitch line has a reason. The result is something that should outlast most things you own.</p>
+      <div class="case-meta">
+        <div class="meta-item">
+          <div class="meta-label">Materials</div>
+          <div class="meta-value">Waxed canvas · Full-grain leather · Brass hardware</div>
+        </div>
+        <div class="meta-item">
+          <div class="meta-label">Process</div>
+          <div class="meta-value">Pattern-making · Hand stitching · Riveting</div>
+        </div>
+        <div class="meta-item">
+          <div class="meta-label">Year</div>
+          <div class="meta-value">2023</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="essay-full">
+      <img class="img-wide" src="photos/design/file_626---dc61c13c-f0ad-47f6-8643-07810d156070.jpg" alt="Relic Messenger bag flat lay">
+    </div>
+
+    <div class="essay-grid cols-3" style="margin:3px 0;">
+      <img class="img-tall" src="photos/design/file_624---0aa2ccf5-05d4-4137-8ab2-ccce0611d532.jpg" alt="Leather detail">
+      <img class="img-tall" src="photos/design/file_625---0685f34d-487c-4107-9f43-b340e2529d73.jpg" alt="Hardware detail">
+      <img class="img-tall" src="photos/design/file_630---1d735087-a6c8-4b00-a49c-2b121c50095d.jpg" alt="Bag detail">
+    </div>
+
   </div>
 
-  <footer class="px-8 py-12 text-center border-t" style="border-color:#1a1a1a;color:#444;font-size:0.875rem;">
-    <p>© 2025 Henry Meehan · <a href="index.html" style="text-decoration:none;color:#666;">Home</a></p>
+  <!-- ─── CASE STUDY 3: ID Sketching & Illustration ─── -->
+  <div style="max-width:1400px;margin:0 auto;padding:5rem 3px 0;">
+
+    <div style="max-width:760px;margin:0 auto;padding:0 2rem 2rem;">
+      <div class="section-label">03 · Industrial Design / Illustration</div>
+      <h2 class="section-title">Sketching &amp; Visualization</h2>
+      <p class="section-body">ID school at Auburn built the foundation: ideation sketching, marker rendering, Copic work, digital illustration. The Fishbrand Trout is a personal illustration project — combining fly fishing taxonomy with graphic art.</p>
+      <div class="case-meta">
+        <div class="meta-item">
+          <div class="meta-label">Education</div>
+          <div class="meta-value">Auburn University · Industrial Design</div>
+        </div>
+        <div class="meta-item">
+          <div class="meta-label">Media</div>
+          <div class="meta-value">Pencil · Copic markers · Digital</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="essay-grid cols-2" style="margin:3px 0;">
+      <img class="img-wide" src="photos/design/file_687---5b6c67a5-8142-41d1-866c-aea85fdc9379.jpg" alt="Car sketch yellow">
+      <img class="img-wide" src="photos/design/file_688---2dc69292-7e6f-45f5-bf13-f4f5f398e544.jpg" alt="Car sketch green">
+    </div>
+
+    <div class="essay-grid cols-2-1" style="margin:3px 0;">
+      <img class="img-wide" src="photos/design/file_213---150cf60d-28c0-4c97-b0b5-f585c20e29ab.jpg" alt="Fishbrand Trout illustration">
+      <img class="img-wide" src="photos/design/file_199---78c7547c-41b1-446c-99ea-e66a3bf9597f.jpg" alt="ID sketch">
+    </div>
+
+    <div class="essay-full" style="margin-bottom:3px;">
+      <img class="img-wide" src="photos/design/file_198---5e35aea4-6ffa-4ef7-a20b-6491ba0619a9.jpg" alt="Design work">
+    </div>
+
+  </div>
+
+  <!-- Footer -->
+  <footer style="margin-top:6rem;padding:3rem 2rem;text-align:center;color:#555;font-size:0.8rem;border-top:1px solid #1a1a1a;">
+    © 2025 Henry Meehan · Birmingham, Alabama
   </footer>
 
+  <!-- Lightbox -->
+  <div id="lightbox" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.96);z-index:1000;align-items:center;justify-content:center;">
+    <span onclick="closeLb()" style="position:fixed;top:1.5rem;right:2rem;color:#999;font-size:1.5rem;cursor:pointer;">✕</span>
+    <button onclick="shiftLb(-1)" style="position:fixed;left:1rem;top:50%;transform:translateY(-50%);color:#999;font-size:2.5rem;background:none;border:none;cursor:pointer;">‹</button>
+    <img id="lb-img" src="" style="max-height:92vh;max-width:92vw;object-fit:contain;">
+    <button onclick="shiftLb(1)" style="position:fixed;right:1rem;top:50%;transform:translateY(-50%);color:#999;font-size:2.5rem;background:none;border:none;cursor:pointer;">›</button>
+  </div>
   <script>
-    let allImgs = [], currentIdx = 0;
-    function openLightbox(imgs, idx) {
-      allImgs = imgs; currentIdx = idx;
-      document.getElementById('lightbox-img').src = allImgs[currentIdx];
-      document.getElementById('lightbox').classList.add('open');
-      document.body.style.overflow = 'hidden';
-    }
-    function closeLightbox() {
-      document.getElementById('lightbox').classList.remove('open');
-      document.body.style.overflow = '';
-    }
-    function navigate(dir) {
-      currentIdx = (currentIdx + dir + allImgs.length) % allImgs.length;
-      document.getElementById('lightbox-img').src = allImgs[currentIdx];
-    }
-    // Hookset projects section links
-    document.querySelectorAll('.photo-grid').forEach(grid => {
-      const imgs = Array.from(grid.querySelectorAll('img')).map(i => i.src);
-      grid.querySelectorAll('img').forEach((img, idx) => {
-        img.addEventListener('click', () => openLightbox(imgs, idx));
-      });
-    });
-    document.getElementById('lightbox-close').addEventListener('click', closeLightbox);
-    document.getElementById('lightbox-prev').addEventListener('click', () => navigate(-1));
-    document.getElementById('lightbox-next').addEventListener('click', () => navigate(1));
-    document.getElementById('lightbox').addEventListener('click', e => { if(e.target === e.currentTarget) closeLightbox(); });
-    document.addEventListener('keydown', e => {
-      if (!document.getElementById('lightbox').classList.contains('open')) return;
-      if (e.key === 'Escape') closeLightbox();
-      if (e.key === 'ArrowLeft') navigate(-1);
-      if (e.key === 'ArrowRight') navigate(1);
-    });
+    const imgs = Array.from(document.querySelectorAll('.essay-grid img,.essay-full img'));
+    let cur = 0;
+    imgs.forEach((img,i) => img.addEventListener('click',()=>{cur=i;openLb(img.src);}));
+    function openLb(src){document.getElementById('lb-img').src=src;document.getElementById('lightbox').style.display='flex';document.body.style.overflow='hidden';}
+    function closeLb(){document.getElementById('lightbox').style.display='none';document.body.style.overflow='';}
+    function shiftLb(d){cur=(cur+d+imgs.length)%imgs.length;document.getElementById('lb-img').src=imgs[cur].src;}
+    document.getElementById('lightbox').addEventListener('click',function(e){if(e.target===this)closeLb();});
+    document.addEventListener('keydown',e=>{if(document.getElementById('lightbox').style.display==='flex'){if(e.key==='Escape')closeLb();if(e.key==='ArrowRight')shiftLb(1);if(e.key==='ArrowLeft')shiftLb(-1);}});
   </script>
 </body>
 </html>

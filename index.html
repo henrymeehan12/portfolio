@@ -7,73 +7,181 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: { amber: { 500: '#d4a853' } },
-          fontFamily: { sans: ['Inter', 'sans-serif'] }
-        }
-      }
-    }
-  </script>
   <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
     body { background: #0a0a0a; color: #e8e8e8; font-family: 'Inter', sans-serif; }
-    .hero-img { background-image: url('photos/travel/file_61---78958b98-d757-4aaf-a92c-ef5356f72604.jpg'); }
-    nav a { transition: color 0.2s; }
-    nav a:hover { color: #d4a853; }
-    .card:hover .card-arrow { transform: translateX(4px); }
-    .card-arrow { transition: transform 0.2s; }
+
+    .hero-wrap {
+      height: 100vh;
+      background-image: url('photos/travel/file_641---3d921487-bedd-48dc-98a9-8bc955195295.jpg');
+      background-size: cover;
+      background-position: center;
+      position: relative;
+      display: flex;
+      align-items: flex-end;
+    }
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(10,10,10,0.9) 0%, rgba(10,10,10,0.25) 55%, rgba(10,10,10,0.05) 100%);
+    }
+    .hero-content {
+      position: relative;
+      z-index: 10;
+      padding: 4rem;
+      width: 100%;
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+    }
+
+    .section-card {
+      position: relative;
+      overflow: hidden;
+      display: block;
+      text-decoration: none;
+    }
+    .section-card img {
+      width: 100%;
+      display: block;
+      transition: transform 0.5s ease;
+    }
+    .section-card:hover img {
+      transform: scale(1.02);
+    }
+    .card-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(10,10,10,0.85) 0%, rgba(10,10,10,0.1) 60%, transparent 100%);
+      transition: background 0.3s;
+    }
+    .card-body {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 2.5rem;
+    }
+    .card-arrow {
+      display: inline-block;
+      transition: transform 0.2s;
+      color: #d4a853;
+      font-size: 0.8rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+    .section-card:hover .card-arrow {
+      transform: translateX(5px);
+    }
   </style>
 </head>
 <body>
+
   <!-- Nav -->
-  <nav class="fixed top-0 w-full z-50 px-6 py-4 flex items-center justify-between" style="background: linear-gradient(to bottom, rgba(10,10,10,0.9), transparent);">
-    <a href="index.html" class="text-sm font-medium tracking-widest uppercase text-white">Henry Meehan</a>
-    <div class="flex gap-8 text-sm text-gray-400">
-      <a href="photography.html" class="hover:text-amber-500">Photography</a>
-      <a href="design.html" class="hover:text-amber-500">Design</a>
-      <a href="about.html" class="hover:text-amber-500">About</a>
-      <a href="contact.html" class="hover:text-amber-500">Contact</a>
+  <nav class="fixed top-0 w-full z-50 px-6 py-4 flex items-center justify-between" style="background: rgba(10,10,10,0.0); border-bottom: 1px solid transparent; transition: all 0.3s;" id="main-nav">
+    <a href="index.html" style="font-size:0.875rem;font-weight:500;letter-spacing:0.15em;text-transform:uppercase;color:#e8e8e8;text-decoration:none;">Henry Meehan</a>
+    <div class="flex gap-8 text-sm">
+      <a href="photography.html" style="text-decoration:none;color:#999;" onmouseover="this.style.color='#d4a853'" onmouseout="this.style.color='#999'">Photography</a>
+      <a href="design.html" style="text-decoration:none;color:#999;" onmouseover="this.style.color='#d4a853'" onmouseout="this.style.color='#999'">Design</a>
+      <a href="about.html" style="text-decoration:none;color:#999;" onmouseover="this.style.color='#d4a853'" onmouseout="this.style.color='#999'">About</a>
+      <a href="contact.html" style="text-decoration:none;color:#999;" onmouseover="this.style.color='#d4a853'" onmouseout="this.style.color='#999'">Contact</a>
     </div>
   </nav>
 
   <!-- Hero -->
-  <div class="hero-img h-screen bg-cover bg-center relative flex items-end">
-    <div class="absolute inset-0" style="background: linear-gradient(to top, rgba(10,10,10,0.85) 0%, rgba(10,10,10,0.1) 60%, transparent 100%);"></div>
-    <div class="relative z-10 px-8 pb-20 max-w-2xl">
-      <h1 class="text-5xl md:text-7xl font-light tracking-tight mb-4">Henry Meehan</h1>
-      <p class="text-xl text-gray-300 font-light">Product Engineer &amp; Photographer</p>
+  <div class="hero-wrap">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <div>
+        <div style="font-size:0.6rem;letter-spacing:0.3em;text-transform:uppercase;color:#d4a853;margin-bottom:1rem;">Birmingham, Alabama</div>
+        <h1 style="font-size:5rem;font-weight:300;line-height:1.0;margin-bottom:1rem;">Henry<br>Meehan</h1>
+        <p style="color:#999;font-size:0.9rem;letter-spacing:0.1em;text-transform:uppercase;font-weight:300;">Product Engineer &amp; Photographer</p>
+      </div>
+      <div style="text-align:right;">
+        <div style="font-size:0.65rem;letter-spacing:0.2em;text-transform:uppercase;color:#444;line-height:2.2;">
+          <div>New Zealand</div>
+          <div>Montana</div>
+          <div>Japan</div>
+          <div>Vietnam</div>
+          <div>Kenya</div>
+        </div>
+      </div>
     </div>
   </div>
 
   <!-- Cards -->
-  <div class="grid md:grid-cols-2 gap-px bg-gray-900" style="background: #111;">
-    <a href="photography.html" class="card group block relative overflow-hidden" style="height: 60vh;">
-      <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('photos/travel/file_113---0cb2ce59-0b8d-412f-90af-0a1882043fb0.jpg');"></div>
-      <div class="absolute inset-0" style="background: linear-gradient(to top, rgba(10,10,10,0.8), rgba(10,10,10,0.1));"></div>
-      <div class="absolute bottom-8 left-8 right-8 z-10">
-        <p class="text-xs tracking-widest uppercase text-amber-500 mb-2">Portfolio</p>
-        <h2 class="text-3xl font-light mb-3">Photography</h2>
-        <p class="text-gray-400 text-sm mb-4">New Zealand · Vietnam · Japan · Thailand · Singapore · Kenya · American West</p>
-        <span class="card-arrow text-amber-500 text-sm inline-flex items-center gap-2">View work →</span>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:3px;background:#111;margin-top:3px;">
+
+    <a href="photography.html" class="section-card" style="height:65vh;">
+      <div style="position:absolute;inset:0;background-image:url('photos/travel/file_573---d691d30e-ef6d-4c06-9d59-2f18faa10b38.jpg');background-size:cover;background-position:center;transition:transform 0.5s ease;" class="card-bg"></div>
+      <div class="card-overlay"></div>
+      <div class="card-body">
+        <div style="font-size:0.6rem;letter-spacing:0.25em;text-transform:uppercase;color:#d4a853;margin-bottom:0.75rem;">Portfolio</div>
+        <h2 style="font-size:2.25rem;font-weight:300;margin-bottom:0.75rem;">Photography</h2>
+        <p style="color:#999;font-size:0.8rem;margin-bottom:1.25rem;font-weight:300;line-height:1.6;">New Zealand · Vietnam · Japan · Kenya · Montana · American West</p>
+        <span class="card-arrow">View chapters →</span>
       </div>
     </a>
-    <a href="design.html" class="card group block relative overflow-hidden" style="height: 60vh;">
-      <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('photos/design/file_153---159a0120-49c3-4fc2-a95a-1a4f5dd841db.jpg');"></div>
-      <div class="absolute inset-0" style="background: linear-gradient(to top, rgba(10,10,10,0.8), rgba(10,10,10,0.1));"></div>
-      <div class="absolute bottom-8 left-8 right-8 z-10">
-        <p class="text-xs tracking-widest uppercase text-amber-500 mb-2">Portfolio</p>
-        <h2 class="text-3xl font-light mb-3">Design &amp; Engineering</h2>
-        <p class="text-gray-400 text-sm mb-4">Guitar building · Industrial design · NEXFORM AI system</p>
-        <span class="card-arrow text-amber-500 text-sm inline-flex items-center gap-2">View work →</span>
+
+    <a href="design.html" class="section-card" style="height:65vh;">
+      <div style="position:absolute;inset:0;background-image:url('photos/design/file_667---0dd4e21e-ee25-4ad4-b3e6-895393282635.jpg');background-size:cover;background-position:center;transition:transform 0.5s ease;" class="card-bg"></div>
+      <div class="card-overlay"></div>
+      <div class="card-body">
+        <div style="font-size:0.6rem;letter-spacing:0.25em;text-transform:uppercase;color:#d4a853;margin-bottom:0.75rem;">Portfolio</div>
+        <h2 style="font-size:2.25rem;font-weight:300;margin-bottom:0.75rem;">Design &amp; Engineering</h2>
+        <p style="color:#999;font-size:0.8rem;margin-bottom:1.25rem;font-weight:300;line-height:1.6;">Guitar building · Leather goods · Industrial design · NEXFORM AI</p>
+        <span class="card-arrow">View work →</span>
       </div>
     </a>
+
+  </div>
+
+  <!-- Brief bio strip -->
+  <div style="border-top:1px solid #1a1a1a;padding:4rem;display:flex;gap:6rem;align-items:flex-start;">
+    <div style="flex:1;">
+      <div style="font-size:0.6rem;letter-spacing:0.25em;text-transform:uppercase;color:#d4a853;margin-bottom:1rem;">About</div>
+      <p style="color:#999;font-size:0.85rem;line-height:1.9;font-weight:300;max-width:480px;">Product engineer in metal fabrication by trade. Fly fishing guide by summer. Industrial designer by training. I build things, photograph the places I fish, and occasionally finish a project before starting three more.</p>
+    </div>
+    <div style="flex:1;display:flex;gap:3rem;">
+      <div>
+        <div style="font-size:0.6rem;letter-spacing:0.2em;text-transform:uppercase;color:#444;margin-bottom:0.5rem;">Based</div>
+        <div style="color:#777;font-size:0.8rem;">Birmingham, Alabama</div>
+      </div>
+      <div>
+        <div style="font-size:0.6rem;letter-spacing:0.2em;text-transform:uppercase;color:#444;margin-bottom:0.5rem;">Background</div>
+        <div style="color:#777;font-size:0.8rem;line-height:1.7;">Auburn University<br>Industrial Design</div>
+      </div>
+      <div>
+        <div style="font-size:0.6rem;letter-spacing:0.2em;text-transform:uppercase;color:#444;margin-bottom:0.5rem;">Contact</div>
+        <div><a href="contact.html" style="color:#d4a853;font-size:0.8rem;text-decoration:none;" onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">Get in touch →</a></div>
+      </div>
+    </div>
   </div>
 
   <!-- Footer -->
-  <footer class="px-8 py-12 text-center text-gray-600 text-sm border-t border-gray-900">
-    <p>© 2025 Henry Meehan · Birmingham, Alabama</p>
+  <footer style="padding:2rem 4rem;text-align:center;color:#333;font-size:0.75rem;border-top:1px solid #111;">
+    © 2025 Henry Meehan
   </footer>
+
+  <script>
+    // Fade nav in on scroll
+    const nav = document.getElementById('main-nav');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 80) {
+        nav.style.background = 'rgba(10,10,10,0.95)';
+        nav.style.borderBottomColor = '#1a1a1a';
+      } else {
+        nav.style.background = 'rgba(10,10,10,0.0)';
+        nav.style.borderBottomColor = 'transparent';
+      }
+    });
+
+    // Subtle parallax on card backgrounds
+    document.querySelectorAll('.section-card').forEach(card => {
+      const bg = card.querySelector('.card-bg');
+      card.addEventListener('mouseover', () => { if(bg) bg.style.transform = 'scale(1.03)'; });
+      card.addEventListener('mouseout', () => { if(bg) bg.style.transform = 'scale(1)'; });
+    });
+  </script>
 </body>
 </html>

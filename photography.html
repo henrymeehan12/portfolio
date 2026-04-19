@@ -4,117 +4,84 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Photography — Henry Meehan</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
-    body { background: #0a0a0a; color: #e8e8e8; font-family: 'Inter', sans-serif; margin: 0; }
-    .chapter-hero {
-      height: 100vh;
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: #0a0a0a; color: #e8e8e8; font-family: 'Inter', sans-serif; overflow: hidden; }
+    nav a { transition: color 0.2s; }
+
+    .snap-wrap {
+      height: calc(100vh - 57px);
+      margin-top: 57px;
+      overflow-y: scroll;
+      scroll-snap-type: y mandatory;
+    }
+    .chapter-panel {
+      scroll-snap-align: start;
+      height: calc(100vh - 57px);
+      position: relative;
       background-size: cover;
       background-position: center;
-      position: relative;
       display: flex;
       align-items: flex-end;
     }
-    .hero-overlay {
+    .panel-overlay {
       position: absolute;
       inset: 0;
-      background: linear-gradient(to top, rgba(10,10,10,0.92) 0%, rgba(10,10,10,0.3) 50%, rgba(10,10,10,0.05) 100%);
+      background: linear-gradient(to top, rgba(10,10,10,0.88) 0%, rgba(10,10,10,0.2) 55%, rgba(10,10,10,0.0) 100%);
     }
-    .hero-content {
+    .panel-content {
       position: relative;
       z-index: 10;
-      padding: 3.5rem 4rem;
-      max-width: 680px;
-    }
-    .chapter-label {
-      font-size: 0.6rem;
-      letter-spacing: 0.25em;
-      text-transform: uppercase;
-      color: #d4a853;
-      margin-bottom: 0.75rem;
-    }
-    .chapter-title {
-      font-size: 2.5rem;
-      font-weight: 300;
-      line-height: 1.15;
-      margin-bottom: 1.25rem;
-    }
-    .chapter-story {
-      color: #bbb;
-      line-height: 1.8;
-      font-size: 0.9rem;
-      font-weight: 300;
-    }
-    /* Essay grid */
-    .essay-grid {
-      display: grid;
-      gap: 3px;
-      background: #0a0a0a;
-      padding: 3px;
-    }
-    .essay-grid.cols-2 { grid-template-columns: 1fr 1fr; }
-    .essay-grid.cols-3 { grid-template-columns: 1fr 1fr 1fr; }
-    .essay-grid.cols-2-1 { grid-template-columns: 2fr 1fr; }
-    .essay-grid.cols-1-2 { grid-template-columns: 1fr 2fr; }
-    .essay-full { margin: 3px; }
-    .essay-grid img, .essay-full img {
+      padding: 3rem 4rem;
       width: 100%;
-      height: 100%;
-      object-fit: cover;
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+    }
+    .panel-left { max-width: 600px; }
+    .chapter-num { font-size: 0.6rem; letter-spacing: 0.25em; text-transform: uppercase; color: #d4a853; margin-bottom: 0.6rem; }
+    .chapter-title { font-size: 3rem; font-weight: 300; line-height: 1.1; margin-bottom: 0.75rem; }
+    .chapter-teaser { color: #bbb; font-size: 0.875rem; line-height: 1.7; font-weight: 300; max-width: 480px; margin-bottom: 1.5rem; }
+    .read-link {
+      display: inline-block;
+      border: 1px solid rgba(212,168,83,0.5);
+      color: #d4a853;
+      padding: 0.6rem 1.5rem;
+      text-decoration: none;
+      font-size: 0.75rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      transition: all 0.2s;
+    }
+    .read-link:hover { background: #d4a853; color: #0a0a0a; border-color: #d4a853; }
+    .panel-right { text-align: right; color: #444; font-size: 0.75rem; letter-spacing: 0.1em; line-height: 1.8; }
+    .scroll-hint {
+      position: fixed;
+      bottom: 2rem;
+      left: 2rem;
+      color: #333;
+      font-size: 0.65rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      z-index: 20;
+      writing-mode: vertical-rl;
+      pointer-events: none;
+    }
+    #panel-counter {
+      font-size: 0.7rem;
+      letter-spacing: 0.15em;
+      color: #555;
       display: block;
-      cursor: pointer;
-      transition: opacity 0.2s;
+      margin-top: 1rem;
     }
-    .essay-grid img:hover, .essay-full img:hover { opacity: 0.88; }
-    .img-tall { aspect-ratio: 3/4; }
-    .img-wide { aspect-ratio: 16/9; }
-    .img-sq { aspect-ratio: 1/1; }
-    .img-cinema { aspect-ratio: 21/9; }
-    .chapter-divider {
-      border: none;
-      border-top: 1px solid #1a1a1a;
-      margin: 0;
-    }
-    /* Lightbox */
-    #lightbox {
-      display: none;
-      position: fixed;
-      inset: 0;
-      background: rgba(0,0,0,0.96);
-      z-index: 1000;
-      align-items: center;
-      justify-content: center;
-    }
-    #lightbox.active { display: flex; }
-    #lightbox img { max-height: 92vh; max-width: 92vw; object-fit: contain; }
-    #lightbox-close {
-      position: fixed;
-      top: 1.5rem;
-      right: 2rem;
-      color: #999;
-      font-size: 1.5rem;
-      cursor: pointer;
-      z-index: 1001;
-    }
-    #lightbox-prev, #lightbox-next {
-      position: fixed;
-      top: 50%;
-      transform: translateY(-50%);
-      color: #999;
-      font-size: 2rem;
-      cursor: pointer;
-      padding: 1rem;
-      z-index: 1001;
-      background: none;
-      border: none;
-    }
-    #lightbox-prev { left: 1rem; }
-    #lightbox-next { right: 1rem; }
   </style>
 </head>
 <body>
 
+  <!-- Nav -->
   <nav class="fixed top-0 w-full z-50 px-6 py-4 flex items-center justify-between" style="background: rgba(10,10,10,0.95); border-bottom: 1px solid #1a1a1a;">
     <a href="index.html" style="font-size:0.875rem;font-weight:500;letter-spacing:0.15em;text-transform:uppercase;color:#e8e8e8;text-decoration:none;">Henry Meehan</a>
     <div class="flex gap-8 text-sm">
@@ -125,276 +92,134 @@
     </div>
   </nav>
 
-  <div style="padding-top:57px;">
+  <div class="scroll-hint">Scroll</div>
 
-    <!-- ═══════════════════════════════════════════════
-         CHAPTER 1 · MONTANA — MADISON RIVER
-    ════════════════════════════════════════════════ -->
-    <section>
-      <div class="chapter-hero" style="background-image:url('photos/travel/file_641---3d921487-bedd-48dc-98a9-8bc955195295.jpg');">
-        <div class="hero-overlay"></div>
-        <div class="hero-content">
-          <p class="chapter-label">01 · Montana, 2019–2024</p>
-          <h2 class="chapter-title">The Madison River</h2>
-          <p class="chapter-story">In 2017 I went on my first fly fishing trip to Montana with Lillard Fly Fishing Expeditions. I went back every summer. In 2019 Will Lillard asked if I'd guide for him. I guided every summer until 2025. Six seasons on the best trout river I've ever fished — and eventually, teaching kids to fish it for the first time.</p>
+  <div class="snap-wrap" id="snap-wrap">
+
+    <!-- 01 Montana -->
+    <div class="chapter-panel" style="background-image: url('photos/travel/file_641---3d921487-bedd-48dc-98a9-8bc955195295.jpg');">
+      <div class="panel-overlay"></div>
+      <div class="panel-content">
+        <div class="panel-left">
+          <div class="chapter-num">01 · Montana, 2019–2024</div>
+          <h2 class="chapter-title">Montana —<br>The Madison River</h2>
+          <p class="chapter-teaser">Six seasons guiding on the best trout river I know. And eventually, teaching kids to fish it for the first time.</p>
+          <a href="photography/montana.html" class="read-link">Open Chapter</a>
+        </div>
+        <div class="panel-right">
+          Montana · USA
+          <span id="panel-counter">1 / 8</span>
         </div>
       </div>
+    </div>
 
-      <div class="essay-full"><img src="photos/travel/file_573---d691d30e-ef6d-4c06-9d59-2f18faa10b38.jpg" class="img-wide" alt="Anglers walking to the Madison River" loading="lazy"></div>
-
-      <div class="essay-grid cols-2">
-        <img src="photos/travel/file_560---f3a94d16-801d-4607-bace-e4765db79191.jpg" class="img-sq" alt="Teaching entomology at the picnic table" loading="lazy">
-        <img src="photos/travel/file_539---85b1b3d2-3493-484b-a2e4-7032ab1a13ba.jpg" class="img-sq" alt="Fawn face to face on the gravel bar" loading="lazy">
-      </div>
-
-      <div class="essay-grid cols-3">
-        <img src="photos/travel/file_568---dfb8e2cf-0a67-44e2-b533-c9b436c746e1.jpg" class="img-tall" alt="Kid with fly rod loaded against Montana sky" loading="lazy">
-        <img src="photos/travel/file_547---22e2138e-308f-43bd-be9b-9ea588ca212b.jpg" class="img-tall" alt="Brown trout portrait" loading="lazy">
-        <img src="photos/travel/file_606---b3997a1a-b5a6-42f4-ad24-a6191933cac7.jpg" class="img-tall" alt="Rainbow trout vivid pink stripe" loading="lazy">
-      </div>
-
-      <div class="essay-grid cols-2-1">
-        <img src="photos/travel/file_610---8e0b0122-e022-4592-bd20-f6a1f9482a12.jpg" class="img-wide" alt="Release in the Madison, Tobacco Root Mountains" loading="lazy">
-        <img src="photos/travel/file_564---8362abae-3c78-4f43-ad1d-917786a62cda.jpg" class="img-wide" alt="Campfire at blue hour" loading="lazy">
-      </div>
-
-      <div class="essay-grid cols-2">
-        <img src="photos/travel/file_712---6be7a64e-af13-46ad-a294-22d60190b2eb.jpg" class="img-wide" alt="Woman wading and casting, lenticular cloud overhead" loading="lazy">
-        <img src="photos/travel/file_554---b5a3bc20-8202-4085-82a8-6525e92c14e2.jpg" class="img-wide" alt="God rays over Montana ridgeline" loading="lazy">
-      </div>
-
-      <div class="essay-grid cols-3">
-        <img src="photos/travel/file_711---3c16c10b-4d08-444f-935e-9117b7016772.jpg" class="img-tall" alt="Kid casting against the big Montana sky" loading="lazy">
-        <img src="photos/travel/file_716---d63d4881-36b8-4d85-9784-f0b40b4e4ba7.jpg" class="img-tall" alt="Reed grass with stoneflies, river glinting behind" loading="lazy">
-        <img src="photos/travel/file_717---58d9851a-4545-4ade-9515-d6094e981526.jpg" class="img-tall" alt="Mating caddisfly on a grass stem" loading="lazy">
-      </div>
-    </section>
-
-    <hr class="chapter-divider">
-
-    <!-- ═══════════════════════════════════════════════
-         CHAPTER 2 · WYOMING — BACKCOUNTRY
-    ════════════════════════════════════════════════ -->
-    <section>
-      <div class="chapter-hero" style="background-image:url('photos/travel/file_611---b596e7fb-c82a-4813-a81c-304f2dcc72e2.jpg'); background-position: center 30%;">
-        <div class="hero-overlay"></div>
-        <div class="hero-content">
-          <p class="chapter-label">02 · Wyoming Backcountry</p>
-          <h2 class="chapter-title">Yellowstone Drainage</h2>
-          <p class="chapter-story">We packed a raft in to reach water that doesn't get fished. Flooded meadows, grizzly tracks in the sand that morning. Yellowstone cutthroat in the headwaters — orange as a goldfish, fat as a football. The hike back out nearly killed us.</p>
+    <!-- 02 Wyoming -->
+    <div class="chapter-panel" style="background-image: url('photos/travel/file_611---b596e7fb-c82a-4813-a81c-304f2dcc72e2.jpg'); background-position: center 30%;">
+      <div class="panel-overlay"></div>
+      <div class="panel-content">
+        <div class="panel-left">
+          <div class="chapter-num">02 · Wyoming Backcountry</div>
+          <h2 class="chapter-title">Wyoming —<br>Yellowstone Drainage</h2>
+          <p class="chapter-teaser">We packed a raft in. Flooded meadows, grizzly tracks in the sand that morning, Yellowstone cutthroat in the headwaters.</p>
+          <a href="photography/wyoming.html" class="read-link">Open Chapter</a>
         </div>
+        <div class="panel-right">Wyoming · USA</div>
       </div>
+    </div>
 
-      <div class="essay-grid cols-2">
-        <img src="photos/travel/file_616---8bf4203b-19eb-45a5-96e6-f4d67671273f.jpg" class="img-wide" alt="Packraft in flooded meadow" loading="lazy">
-        <img src="photos/travel/file_617---d24c9a00-6ace-48e2-8cae-55804e34c56c.jpg" class="img-wide" alt="Submerged log walkway to Absaroka cliffs" loading="lazy">
-      </div>
-
-      <div class="essay-grid cols-3">
-        <img src="photos/travel/file_612---e6973c61-22f6-422e-91d5-a93cc2807609.jpg" class="img-tall" alt="Kid with Yellowstone cutthroat, Absaroka behind" loading="lazy">
-        <img src="photos/travel/file_620---015e6beb-cf24-4113-85e4-424cd2e0ca28.jpg" class="img-tall" alt="Grizzly bear tracks in the sand" loading="lazy">
-        <img src="photos/travel/file_614---5d66e7c2-13c3-4287-b0f7-95dc9698ba28.jpg" class="img-tall" alt="Hikers collapsed in the forest" loading="lazy">
-      </div>
-
-      <div class="essay-full"><img src="photos/travel/file_680---4b965757-496d-41ed-be43-f90058bcba11.jpg" class="img-wide" alt="Going to the Sun Road, Glacier National Park" loading="lazy"></div>
-    </section>
-
-    <hr class="chapter-divider">
-
-    <!-- ═══════════════════════════════════════════════
-         CHAPTER 3 · NEW ZEALAND
-    ════════════════════════════════════════════════ -->
-    <section>
-      <div class="chapter-hero" style="background-image:url('photos/travel/file_61---78958b98-d757-4aaf-a92c-ef5356f72604.jpg');">
-        <div class="hero-overlay"></div>
-        <div class="hero-content">
-          <p class="chapter-label">03 · New Zealand, Early 2024</p>
-          <h2 class="chapter-title">Back Country</h2>
-          <p class="chapter-story">First stop on a four-month trip. Back country rivers in the South Island — no trails, fish that had probably never seen a fly. I'd been chasing this water since 2017. The trout here are beyond what the word "trout" prepares you for.</p>
+    <!-- 03 New Zealand -->
+    <div class="chapter-panel" style="background-image: url('photos/travel/file_61---78958b98-d757-4aaf-a92c-ef5356f72604.jpg');">
+      <div class="panel-overlay"></div>
+      <div class="panel-content">
+        <div class="panel-left">
+          <div class="chapter-num">03 · New Zealand, Early 2024</div>
+          <h2 class="chapter-title">New Zealand —<br>Back Country</h2>
+          <p class="chapter-teaser">First stop on a four-month trip. Back country rivers in the South Island — no trails, fish that had probably never seen a fly.</p>
+          <a href="photography/new-zealand.html" class="read-link">Open Chapter</a>
         </div>
+        <div class="panel-right">South Island · NZ</div>
       </div>
+    </div>
 
-      <div class="essay-grid cols-2">
-        <img src="photos/travel/file_673---e12e787b-ac88-415f-a238-c9d796371f1a.jpg" class="img-sq" alt="Brook trout in fall spawning colors" loading="lazy">
-        <img src="photos/travel/file_674---ed909d2e-58e8-4e15-a26f-3c754706a1bb.jpg" class="img-sq" alt="Brook trout flank detail" loading="lazy">
-      </div>
-
-      <div class="essay-full"><img src="photos/travel/file_672---40a12a8e-14aa-4ffd-9525-6faa74a8e33d.jpg" class="img-wide" alt="Spey casting on the river" loading="lazy"></div>
-    </section>
-
-    <hr class="chapter-divider">
-
-    <!-- ═══════════════════════════════════════════════
-         CHAPTER 4 · SE ASIA — 2024
-    ════════════════════════════════════════════════ -->
-    <section>
-      <div class="chapter-hero" style="background-image:url('photos/travel/file_722---b9b9b9fc-79c7-45a4-885c-915e73f7ec9a.jpg'); background-position: center 40%;">
-        <div class="hero-overlay"></div>
-        <div class="hero-content">
-          <p class="chapter-label">04 · Fiji · Singapore · Thailand · Vietnam, 2024</p>
-          <h2 class="chapter-title">Ha Giang &amp; Beyond</h2>
-          <p class="chapter-story">The Ha Giang Loop is four days of mountain roads in the far north of Vietnam — passes, karst towers, villages in clouds. There's a cave on the Nho Que River where you take a boat in the dark and the stalactites come down to the water. At one point we stopped the bikes and a family waved us over to help hoe their corn. You don't plan for that. You just say yes.</p>
+    <!-- 04 SE Asia -->
+    <div class="chapter-panel" style="background-image: url('photos/travel/file_722---b9b9b9fc-79c7-45a4-885c-915e73f7ec9a.jpg'); background-position: center 40%;">
+      <div class="panel-overlay"></div>
+      <div class="panel-content">
+        <div class="panel-left">
+          <div class="chapter-num">04 · Fiji · SE Asia, 2024</div>
+          <h2 class="chapter-title">Ha Giang &amp;<br>Beyond</h2>
+          <p class="chapter-teaser">Offshore in Fiji. Singapore at night. The Ha Giang Loop in far northern Vietnam — and the family who waved us over to help hoe their corn.</p>
+          <a href="photography/southeast-asia.html" class="read-link">Open Chapter</a>
         </div>
+        <div class="panel-right">Fiji · Vietnam · Singapore</div>
       </div>
+    </div>
 
-      <div class="essay-grid cols-3">
-        <img src="photos/travel/file_718---acde2973-f355-4ba1-94ed-f6928ea019e5.jpg" class="img-tall" alt="Hanoi Train Street at night" loading="lazy">
-        <img src="photos/travel/file_38---cc67decf-d449-4634-8068-2f9134f1700b.jpg" class="img-tall" alt="Singapore Marina Bay Sands at night" loading="lazy">
-        <img src="photos/travel/file_643---307232d2-41db-4456-aa0e-0e63951a602d.jpg" class="img-tall" alt="Offshore fishing in Fiji" loading="lazy">
-      </div>
-
-      <div class="essay-full"><img src="photos/travel/file_726---6a09e4af-c039-42b7-8637-3a6d42e4102f.jpg" class="img-wide" alt="Ha Giang winding road, two hikers tiny below" loading="lazy"></div>
-
-      <div class="essay-grid cols-2">
-        <img src="photos/travel/file_729---94403f2d-9888-4255-bcbb-bae1f5e073db.jpg" class="img-wide" alt="Woman walking rice paddy berm, karst in fog" loading="lazy">
-        <img src="photos/travel/file_730---7c2246ca-0194-4d57-b4f0-a2c51a1d020b.jpg" class="img-wide" alt="Ha Giang winding switchbacks to village" loading="lazy">
-      </div>
-
-      <div class="essay-grid cols-2-1">
-        <img src="photos/travel/file_728---cad1c8f4-a2c1-4365-9d72-1f68deb3059a.jpg" class="img-wide" alt="Henry hoeing corn alongside Hmong village women" loading="lazy">
-        <img src="photos/travel/file_733---c519fe08-fb17-4440-82d9-77ab7ebf6d46.jpg" class="img-wide" alt="Vietnamese kid running up the road, huge grin" loading="lazy">
-      </div>
-    </section>
-
-    <hr class="chapter-divider">
-
-    <!-- ═══════════════════════════════════════════════
-         CHAPTER 5 · JAPAN — 2024
-    ════════════════════════════════════════════════ -->
-    <section>
-      <div class="chapter-hero" style="background-image:url('photos/travel/file_647---625409a9-00de-4433-803d-972d194a77af.jpg'); background-position: center 40%;">
-        <div class="hero-overlay"></div>
-        <div class="hero-content">
-          <p class="chapter-label">05 · Japan, April 2024</p>
-          <h2 class="chapter-title">Attention</h2>
-          <p class="chapter-story">Japan rewards attention. Not the temples — though Fushimi Inari at dawn is everything — but the single tea cup, the train platform at 6am, the way Fuji appears between two buildings if you're looking at the right angle. And the food. I didn't eat badly once.</p>
+    <!-- 05 Japan -->
+    <div class="chapter-panel" style="background-image: url('photos/travel/file_647---625409a9-00de-4433-803d-972d194a77af.jpg'); background-position: center 40%;">
+      <div class="panel-overlay"></div>
+      <div class="panel-content">
+        <div class="panel-left">
+          <div class="chapter-num">05 · Japan, April 2024</div>
+          <h2 class="chapter-title">Japan —<br>Attention</h2>
+          <p class="chapter-teaser">Japan rewards attention. Not the temples — though Fushimi Inari at dawn is everything — but the way Fuji appears between two buildings if you're looking at the right angle.</p>
+          <a href="photography/japan.html" class="read-link">Open Chapter</a>
         </div>
+        <div class="panel-right">Japan · 2024</div>
       </div>
+    </div>
 
-      <div class="essay-grid cols-3">
-        <img src="photos/travel/file_651---685b1ad1-a89c-4d4c-90c6-cef110da0f7f.jpg" class="img-tall" alt="Harakado building facade, Tokyo" loading="lazy">
-        <img src="photos/travel/file_648---ece78621-9638-4f30-8637-03ec45bb7723.jpg" class="img-tall" alt="Kyoto at night, Kyoto Tower" loading="lazy">
-        <img src="photos/travel/file_649---3659d44f-edd6-4264-b238-ea3a30d8c6d2.jpg" class="img-tall" alt="Train platform to Fushimi Inari" loading="lazy">
-      </div>
-
-      <div class="essay-grid cols-2">
-        <img src="photos/travel/file_653---e1179f58-b351-4484-8f74-090def0538da.jpg" class="img-wide" alt="Henry laughing at the omakase counter" loading="lazy">
-        <img src="photos/travel/file_130---09163f25-7559-4103-a924-9088fbe776b5.jpg" class="img-wide" alt="Nara deer pagoda cherry blossom" loading="lazy">
-      </div>
-    </section>
-
-    <hr class="chapter-divider">
-
-    <!-- ═══════════════════════════════════════════════
-         CHAPTER 6 · AMERICAN WEST — ROAD TRIP
-    ════════════════════════════════════════════════ -->
-    <section>
-      <div class="chapter-hero" style="background-image:url('photos/travel/file_702---678a03b8-8588-4fa1-b21a-b51d0fb3050e.jpg');">
-        <div class="hero-overlay"></div>
-        <div class="hero-content">
-          <p class="chapter-label">06 · Nevada · Utah · Texas, October 2024</p>
-          <h2 class="chapter-title">Road Trip South</h2>
-          <p class="chapter-story">I drove from Montana back to Alabama in October. Went through Nevada, the Bonneville Salt Flats, Moab, Big Bend. Didn't hurry. You don't understand how big this country is until you drive it without stopping much.</p>
+    <!-- 06 American West -->
+    <div class="chapter-panel" style="background-image: url('photos/travel/file_702---678a03b8-8588-4fa1-b21a-b51d0fb3050e.jpg');">
+      <div class="panel-overlay"></div>
+      <div class="panel-content">
+        <div class="panel-left">
+          <div class="chapter-num">06 · Nevada · Utah · Texas, October 2024</div>
+          <h2 class="chapter-title">American West —<br>Road Trip South</h2>
+          <p class="chapter-teaser">Drove from Montana back to Alabama in October. Bonneville Salt Flats. Corona Arch. Big Bend. Didn't hurry.</p>
+          <a href="photography/american-west.html" class="read-link">Open Chapter</a>
         </div>
+        <div class="panel-right">Nevada · Utah · Texas</div>
       </div>
+    </div>
 
-      <div class="essay-grid cols-2">
-        <img src="photos/travel/file_695---cdd32206-9e4c-4183-879b-fd4738fedf39.jpg" class="img-wide" alt="Bonneville Salt Flats" loading="lazy">
-        <img src="photos/travel/file_696---9ade94b5-234f-4907-b1e3-0ae872429113.jpg" class="img-wide" alt="Salt flat hexagons ground level" loading="lazy">
-      </div>
-
-      <div class="essay-full"><img src="photos/travel/file_710---3c59c9c4-355f-4e10-bd77-c42ab25dbb0a.jpg" class="img-wide" alt="Corona Arch, Moab — three people for scale" loading="lazy"></div>
-
-      <div class="essay-grid cols-3">
-        <img src="photos/travel/file_703---1d8bf0ea-69f9-43cb-b733-e101a915bc29.jpg" class="img-tall" alt="Corona Arch backlit" loading="lazy">
-        <img src="photos/travel/file_699---e48d11e1-83b1-4437-bac6-ebe96b5e0d82.jpg" class="img-tall" alt="Utah red sandstone canyon" loading="lazy">
-        <img src="photos/travel/file_700---25648364-f926-4c6d-b7d3-cdcd1d06107e.jpg" class="img-tall" alt="Nevada Basin and Range geology" loading="lazy">
-      </div>
-    </section>
-
-    <hr class="chapter-divider">
-
-    <!-- ═══════════════════════════════════════════════
-         CHAPTER 7 · KENYA — 2015
-    ════════════════════════════════════════════════ -->
-    <section>
-      <div class="chapter-hero" style="background-image:url('photos/travel/file_194---df4e6ada-e643-4620-91d5-9a29b1b7be13.jpg');">
-        <div class="hero-overlay"></div>
-        <div class="hero-content">
-          <p class="chapter-label">07 · Kenya, 2015</p>
+    <!-- 07 Kenya -->
+    <div class="chapter-panel" style="background-image: url('photos/travel/file_194---df4e6ada-e643-4620-91d5-9a29b1b7be13.jpg');">
+      <div class="panel-overlay"></div>
+      <div class="panel-content">
+        <div class="panel-left">
+          <div class="chapter-num">07 · Kenya, 2015</div>
           <h2 class="chapter-title">Maasai Mara</h2>
-          <p class="chapter-story">I was 15. I spent time in the Mara learning under Peter Blackwell — a professional wildlife photographer and bush guide — and got my first real look at what a camera can do. The lions were in the grass. A baboon climbed an acacia tree to get away from them. A white rhino walked straight at our vehicle and didn't stop.</p>
+          <p class="chapter-teaser">I was 15. I spent time in the Mara learning under Peter Blackwell — a professional wildlife photographer and bush guide. He taught me what it means to wait for the right moment.</p>
+          <a href="photography/kenya.html" class="read-link">Open Chapter</a>
         </div>
+        <div class="panel-right">Maasai Mara · Kenya</div>
       </div>
+    </div>
 
-      <div class="essay-full"><img src="photos/travel/file_541---39493a79-5087-4228-87dc-2cbb52f4b942.jpg" class="img-wide" alt="Maasai Mara dry season" loading="lazy"></div>
-    </section>
-
-    <hr class="chapter-divider">
-
-    <!-- ═══════════════════════════════════════════════
-         CHAPTER 8 · GULF COAST & HOME
-    ════════════════════════════════════════════════ -->
-    <section>
-      <div class="chapter-hero" style="background-image:url('photos/about/file_167---6f671b6f-f974-4218-91cb-8175019b046e.jpg'); background-position: center 30%;">
-        <div class="hero-overlay"></div>
-        <div class="hero-content">
-          <p class="chapter-label">08 · Alabama · Gulf of Mexico</p>
-          <h2 class="chapter-title">Home Water</h2>
-          <p class="chapter-story">Home water. The places I grew up fishing. Offshore runs for reef fish. Redfishing the flats on fly. The 40-inch bull redfish at the oil rig platform is still the biggest red I've ever touched. The aurora in May 2024 was something I'll never fully explain to someone who wasn't standing outside that night.</p>
+    <!-- 08 Gulf Coast -->
+    <div class="chapter-panel" style="background-image: url('photos/about/file_167---6f671b6f-f974-4218-91cb-8175019b046e.jpg'); background-position: center 30%;">
+      <div class="panel-overlay"></div>
+      <div class="panel-content">
+        <div class="panel-left">
+          <div class="chapter-num">08 · Alabama · Gulf of Mexico</div>
+          <h2 class="chapter-title">Gulf Coast &amp;<br>Home</h2>
+          <p class="chapter-teaser">Home water. Offshore for reef fish. Redfishing the flats on fly. The aurora in May 2024 from the lake shore.</p>
+          <a href="photography/gulf-coast.html" class="read-link">Open Chapter</a>
         </div>
+        <div class="panel-right">Alabama · Gulf</div>
       </div>
+    </div>
 
-      <div class="essay-grid cols-2">
-        <img src="photos/travel/file_665---2c5816d6-df58-49d5-8539-9d83db9b535b.jpg" class="img-wide" alt="Aurora borealis over Alabama lake" loading="lazy">
-        <img src="photos/travel/file_535---7ff231d3-ae00-4b67-a0c7-89e74189fa5f.jpg" class="img-wide" alt="Mating stoneflies on a boulder" loading="lazy">
-      </div>
-    </section>
-
-  </div><!-- end main -->
-
-  <footer class="px-8 py-12 text-center border-t" style="border-color:#1a1a1a;color:#444;font-size:0.875rem;margin-top:3px;">
-    <p>© 2025 Henry Meehan · Birmingham, Alabama</p>
-  </footer>
-
-  <!-- Lightbox -->
-  <div id="lightbox">
-    <span id="lightbox-close" onclick="closeLightbox()">✕</span>
-    <button id="lightbox-prev" onclick="shiftLightbox(-1)">‹</button>
-    <img id="lightbox-img" src="" alt="">
-    <button id="lightbox-next" onclick="shiftLightbox(1)">›</button>
   </div>
 
   <script>
-    const allImages = Array.from(document.querySelectorAll('.essay-grid img, .essay-full img'));
-    let currentIndex = 0;
-
-    allImages.forEach((img, i) => {
-      img.addEventListener('click', () => { currentIndex = i; openLightbox(img.src); });
-    });
-
-    function openLightbox(src) {
-      document.getElementById('lightbox-img').src = src;
-      document.getElementById('lightbox').classList.add('active');
-      document.body.style.overflow = 'hidden';
-    }
-    function closeLightbox() {
-      document.getElementById('lightbox').classList.remove('active');
-      document.body.style.overflow = '';
-    }
-    function shiftLightbox(dir) {
-      currentIndex = (currentIndex + dir + allImages.length) % allImages.length;
-      document.getElementById('lightbox-img').src = allImages[currentIndex].src;
-    }
-    document.getElementById('lightbox').addEventListener('click', function(e) {
-      if (e.target === this) closeLightbox();
-    });
-    document.addEventListener('keydown', e => {
-      if (document.getElementById('lightbox').classList.contains('active')) {
-        if (e.key === 'Escape') closeLightbox();
-        if (e.key === 'ArrowRight') shiftLightbox(1);
-        if (e.key === 'ArrowLeft') shiftLightbox(-1);
-      }
+    const snapWrap = document.getElementById('snap-wrap');
+    const panels = document.querySelectorAll('.chapter-panel');
+    const counter = document.getElementById('panel-counter');
+    snapWrap.addEventListener('scroll', () => {
+      const idx = Math.round(snapWrap.scrollTop / snapWrap.clientHeight);
+      if (counter) counter.textContent = `${idx + 1} / ${panels.length}`;
     });
   </script>
 </body>
