@@ -23,19 +23,22 @@
     .case-title { font-family:'Fraunces',serif; font-size:clamp(2.4rem,5vw,4rem); font-weight:300; line-height:1.08; color:var(--ink); margin-bottom:1rem; }
     .case-dek { font-size:1.0625rem; line-height:1.75; color:var(--ink-mid); max-width:60ch; }
     .hero-image { width:100%; aspect-ratio:4/3; object-fit:cover; object-position:center; display:block; background:#e8e4dd; }
+    .hero-image.wide { aspect-ratio:16/9; }
     .meta-strip { max-width:760px; margin:0 auto; padding:2rem 3rem; border-top:1px solid #e0dbd3; border-bottom:1px solid #e0dbd3; display:flex; gap:3rem; flex-wrap:wrap; }
     .meta-label { font-family:'Inter',sans-serif; font-size:0.6rem; letter-spacing:0.2em; text-transform:uppercase; color:var(--ink-mid); margin-bottom:0.3rem; }
     .meta-value { font-size:0.9rem; color:var(--ink); }
     .case-body { max-width:760px; margin:0 auto; padding:3rem 3rem 2rem; }
     .case-body p { font-size:1.0625rem; line-height:1.8; color:var(--ink); max-width:72ch; margin-bottom:1.75rem; }
+    .section-label { max-width:760px; margin:0 auto; padding:3rem 3rem 1rem; font-family:'Inter',sans-serif; font-size:0.65rem; letter-spacing:0.2em; text-transform:uppercase; color:var(--ink-mid); }
     .process-grid { max-width:1100px; margin:0 auto; padding:0 3rem 4rem; display:grid; grid-template-columns:1fr 1fr; gap:1rem; }
     .process-grid img { width:100%; aspect-ratio:4/3; object-fit:cover; display:block; background:#e8e4dd; }
     .process-grid img.wide { grid-column:1/-1; aspect-ratio:16/7; }
-    .process-cap { font-family:'Inter',sans-serif; font-size:0.65rem; letter-spacing:0.12em; text-transform:uppercase; color:var(--ink-mid); padding:0.5rem 0 0; }
+    .process-grid img.portrait { aspect-ratio:3/4; }
     .process-item { display:flex; flex-direction:column; }
-    .collection-full { max-width:1100px; margin:0 auto; padding:0 3rem 4rem; }
-    .collection-full img { width:100%; display:block; background:#e8e4dd; }
-    .section-label { max-width:760px; margin:0 auto; padding:3rem 3rem 1rem; font-family:'Inter',sans-serif; font-size:0.65rem; letter-spacing:0.2em; text-transform:uppercase; color:var(--ink-mid); }
+    .process-cap { font-family:'Inter',sans-serif; font-size:0.65rem; letter-spacing:0.12em; text-transform:uppercase; color:var(--ink-mid); padding:0.5rem 0 0; }
+    .full-bleed-wrap { max-width:1100px; margin:0 auto; padding:0 3rem 4rem; }
+    .full-bleed-wrap img { width:100%; display:block; background:#e8e4dd; }
+    .full-bleed-cap { font-family:'Inter',sans-serif; font-size:0.65rem; letter-spacing:0.12em; text-transform:uppercase; color:var(--ink-mid); padding:0.75rem 0 0; max-width:760px; }
     .chips { max-width:760px; margin:0 auto; padding:2.5rem 3rem; border-top:1px solid #e0dbd3; display:flex; flex-wrap:wrap; gap:0.75rem 2rem; }
     .chip { font-family:'Inter',sans-serif; font-size:0.65rem; letter-spacing:0.2em; text-transform:uppercase; color:var(--ink-mid); }
     .chip strong { color:var(--ink); font-weight:500; }
@@ -46,7 +49,7 @@
     @media(max-width:640px) {
       .process-grid { grid-template-columns:1fr; padding:0 1.5rem 3rem; }
       .process-grid img.wide { aspect-ratio:4/3; }
-      .collection-full { padding:0 1.5rem 3rem; }
+      .full-bleed-wrap { padding:0 1.5rem 3rem; }
       .case-header, .meta-strip, .case-body, .chips, .case-nav, .section-label { padding-left:1.5rem; padding-right:1.5rem; }
     }
   </style>
@@ -68,10 +71,10 @@
   <div class="case-header">
     <div class="case-band">06 · Industrial Design · Auburn 2023</div>
     <h1 class="case-title">Sweetwater Chair</h1>
-    <p class="case-dek">Adirondack, reconsidered. One of four chairs selected by Sweetwater Sound out of an entire Auburn ID class for full-scale production. Raised to get you out of it. Tilted forward so you can actually talk to the person next to you.</p>
+    <p class="case-dek">One of four designs selected by Sweetwater Sound from an entire Auburn ID class for full-scale production. Built in steel and wood and deployed at the actual venue.</p>
   </div>
 
-  <img class="hero-image" src="../photos/design/sweetwater-chair-34-front-white.jpg" alt="Sweetwater Chair — mahogany slats, gray steel A-frame legs, cup holders in armrests">
+  <img class="hero-image wide" src="../photos/design/sweetwater-chair-fullscale-with-scalemodel.jpg" alt="Full-scale Sweetwater Chair in Auburn ID shop with the 1:8 scale model sitting in the seat — the whole project in one frame">
 
   <div class="meta-strip">
     <div class="meta-item">
@@ -84,68 +87,96 @@
     </div>
     <div class="meta-item">
       <div class="meta-label">Typology</div>
-      <div class="meta-value">Outdoor hospitality furniture · full collection</div>
+      <div class="meta-value">Outdoor hospitality furniture · collection</div>
     </div>
     <div class="meta-item">
       <div class="meta-label">Tools</div>
-      <div class="meta-value">Sketch · Copic marker · Scale model · CAD</div>
+      <div class="meta-value">SolidWorks · Illustrator · Weld fabrication · Scale model</div>
     </div>
     <div class="meta-item">
-      <div class="meta-label">Seat width</div>
-      <div class="meta-value">22 in</div>
+      <div class="meta-label">Frame</div>
+      <div class="meta-value">1.5 in square steel tube, welded</div>
     </div>
   </div>
 
   <div class="case-body">
-    <p>Traditional Adirondack chairs are deep, low, and tilted back about 15 degrees. Great for 20 minutes. After that your head keeps falling back onto the headrest, which means talking to anyone next to you is a neck workout. And if you're older or have limited mobility, getting out of one is a whole thing.</p>
-    <p>The Sweetwater Chair pushes against both problems. The seat height is raised so your feet can get back under you when you stand. The whole chair tilts slightly forward to take the load off your neck and open up your posture for conversation. The A-frame leg structure handles the load distribution that makes the forward tilt work without the chair folding under you.</p>
-    <p>The chair was part of a larger brief — a complete outdoor entertainment set designed around a central fire pit. The collection includes the chair, an octagonal fire pit table with a lava rock fire insert, a long park bench on the same steel-and-wood language, and a side table. The full collection was modeled at scale across the studio and presented at final critique as a room scenario. Out of the whole class, Sweetwater selected four chairs for full-scale production. This one was one of them.</p>
-    <p>Materials on the model: mahogany-stained wood slats, gray painted steel A-frame frame, cup holder routed into each armrest. The stain was iterated across three shades before landing on the final mahogany depth.</p>
+    <p>Traditional Adirondack chairs are deep, low, and tilted back 15 degrees. Great for 20 minutes. After that your head falls back onto the headrest — talking to the person next to you becomes a neck workout. And if you're older or have limited mobility, getting out of one takes effort.</p>
+    <p>The Sweetwater Chair pushes against both problems. The seat is raised so your feet can get back under you when you stand. The whole chair tilts slightly forward to take the load off your neck and open your posture for conversation. The A-frame leg structure handles the load geometry that makes the forward tilt work without the chair tipping.</p>
+    <p>The brief was a complete outdoor entertainment collection for Sweetwater Sound: chair, octagonal fire pit table, park bench, side table. Out of the whole class, Sweetwater selected four chairs for full-scale production. This one made the cut.</p>
+    <p>Full scale meant real fabrication. The A-frame legs are 1.5-inch square steel tube, cut to compound angles (22°/16°/18°) from a full-size printed engineering drawing laid out on a welding table, then welded and finished. Wood slats — seat pan boards at 20.5 inches, backrest boards at 35 inches, armrests at 22 inches — bolted to the frame. The completed chair was user-tested in the shop, presented to the client at their brewery, and installed at the outdoor venue.</p>
   </div>
 
   <div class="section-label">Process</div>
 
   <div class="process-grid">
     <div class="process-item">
-      <img src="../photos/design/sweetwater-chair-sketch-model-comparison.jpg" alt="Copic marker elevation sketches with the scale model sitting on top">
-      <div class="process-cap">Copic marker elevations alongside the finished scale model</div>
+      <img src="../photos/design/sweetwater-chair-solidworks-full.jpg" alt="SolidWorks 3D model of the Sweetwater Chair — full assembly with slats and A-frame structure">
+      <div class="process-cap">SolidWorks — full assembly model</div>
     </div>
     <div class="process-item">
-      <img src="../photos/design/sweetwater-chair-engineering-drawing-a.jpg" alt="Pencil engineering drawing with dimensions — 17in height, 22in seat width, A-frame leg geometry">
-      <div class="process-cap">Dimensioned pencil drawing — A-frame leg geometry, 22in seat width</div>
+      <img src="../photos/design/sweetwater-chair-illustrator-dimensions.jpg" alt="Illustrator engineering drawing with angles: 22°/16°/18°, seat pan 20.5in, backrest 35in, armrest 22in, 1.5in metal tubing">
+      <div class="process-cap">Illustrator fabrication drawing — all angles and board dimensions</div>
     </div>
     <div class="process-item">
-      <img src="../photos/design/sweetwater-chair-front-elevation-white.jpg" alt="Sweetwater Chair — front elevation, clean white background">
-      <div class="process-cap">Front elevation</div>
+      <img src="../photos/design/sweetwater-chair-steel-frame-on-drawing.jpg" alt="Cut steel tube components laid on the full-size engineering drawing on a welding table">
+      <div class="process-cap">Steel components laid out on full-size drawing — angles verified before welding</div>
     </div>
     <div class="process-item">
-      <img src="../photos/design/sweetwater-chair-side-profile-white.jpg" alt="Sweetwater Chair — side profile showing A-frame and recline angle">
-      <div class="process-cap">Side profile — A-frame structure and recline angle</div>
+      <img src="../photos/design/sweetwater-chair-steel-angle-cutting.jpg" alt="Steel tube section on engineering drawing — compound angle annotations (43°, 45°, 54°) penciled in">
+      <div class="process-cap">Compound angle cuts penciled onto the drawing before the saw</div>
     </div>
     <div class="process-item">
-      <img src="../photos/design/sweetwater-chair-34-rear-white.jpg" alt="Sweetwater Chair — 3/4 rear view, cup holder and back slats">
-      <div class="process-cap">3/4 rear</div>
+      <img src="../photos/design/sweetwater-chair-fullscale-build-a.jpg" alt="Henry and a teammate building the full-scale chair frame in Auburn ID woodshop">
+      <div class="process-cap">Full-scale build — Auburn ID shop, two-person assembly</div>
     </div>
     <div class="process-item">
-      <img src="../photos/design/sweetwater-chair-stain-iterations.jpg" alt="Three stain iterations on wood arm pieces — light to dark mahogany">
-      <div class="process-cap">Stain iterations — three rounds from light to final mahogany depth</div>
+      <img src="../photos/design/sweetwater-chair-henry-seated.jpg" alt="Henry Meehan seated in the full-scale Sweetwater Chair prototype — Auburn hoodie, cowboy boots, grinning">
+      <div class="process-cap">First sit — the chair holds, the posture works</div>
+    </div>
+    <div class="process-item">
+      <img src="../photos/design/sweetwater-chair-user-testing-a.jpg" alt="Professor or client sitting in the completed full-scale Sweetwater Chair">
+      <div class="process-cap">User testing — professor and client reviewers in the chair</div>
+    </div>
+    <div class="process-item">
+      <img src="../photos/design/sweetwater-chair-sketch-model-comparison.jpg" alt="Copic marker elevation sketches with scale model sitting on top">
+      <div class="process-cap">Scale model on the sketches that produced it</div>
+    </div>
+  </div>
+
+  <div class="section-label">Deployed</div>
+
+  <div class="full-bleed-wrap">
+    <img src="../photos/design/sweetwater-chair-deployed-collection.jpg" alt="Full Sweetwater outdoor furniture collection deployed at the outdoor venue — selected winning chairs around the actual fire pit table, real people using them">
+    <div class="full-bleed-cap">The four selected chairs deployed at the Sweetwater venue alongside the full fire pit table. Real sand, real people, beer in the cup holder.</div>
+  </div>
+
+  <div class="process-grid">
+    <div class="process-item">
+      <img src="../photos/design/sweetwater-chair-deployed-outdoor-a.jpg" alt="Sweetwater Chair at outdoor venue — scale model in seat, beer in cup holder, cable spool tables in background">
+      <div class="process-cap">At the venue — scale model in the seat, beer in the holder</div>
+    </div>
+    <div class="process-item">
+      <img src="../photos/design/sweetwater-chair-brewery-presentation.jpg" alt="Client presentation — scale models on live-edge epoxy bar at a brewery, competing designs side by side">
+      <div class="process-cap">Client review — competing scale models on the live-edge bar</div>
     </div>
   </div>
 
   <div class="section-label">The Collection</div>
 
-  <div class="collection-full">
-    <img src="../photos/design/sweetwater-collection-full-birdseye.jpg" alt="Full Sweetwater outdoor furniture collection — 10 chairs, octagonal fire pit table, park bench, side table — bird's eye view of complete scale model set">
-    <div class="process-cap" style="padding:0.75rem 0 0; max-width:760px;">Complete collection — 10 chairs, octagonal fire pit table (lava rock insert), park bench, side table. Final critique at Auburn ID Studio 220.</div>
+  <div class="full-bleed-wrap">
+    <img src="../photos/design/sweetwater-collection-full-birdseye.jpg" alt="Full Sweetwater outdoor furniture collection — bird's eye of the complete scale model set: 10 chairs, fire pit table, park bench, side table">
+    <div class="full-bleed-cap">Complete collection in scale — 10 chairs, octagonal fire pit table (lava rock insert), park bench, side table. Final critique at Auburn ID Studio 220.</div>
   </div>
 
   <div class="chips">
     <div class="chip"><strong>Outcome</strong> — Selected for full-scale production by client</div>
-    <div class="chip"><strong>Client</strong> — Sweetwater Sound</div>
-    <div class="chip"><strong>Frame</strong> — Gray-painted steel A-frame</div>
-    <div class="chip"><strong>Wood</strong> — Mahogany-stained slats</div>
-    <div class="chip"><strong>Detail</strong> — Cup holder in each armrest</div>
-    <div class="chip"><strong>Seat width</strong> — 22 in</div>
+    <div class="chip"><strong>Frame</strong> — 1.5 in square steel tube, welded</div>
+    <div class="chip"><strong>Back angle</strong> — 22°</div>
+    <div class="chip"><strong>Leg angles</strong> — 16° front · 18° rear</div>
+    <div class="chip"><strong>Seat pan</strong> — 20.5 in × 1 in boards</div>
+    <div class="chip"><strong>Backrest</strong> — 35 in × 1 in boards</div>
+    <div class="chip"><strong>Armrests</strong> — 22 in × 1 in boards, cup holder</div>
+    <div class="chip"><strong>Tools</strong> — SolidWorks · Illustrator · Weld fab · Scale model</div>
     <div class="chip"><strong>Collection</strong> — Chair · Fire pit table · Bench · Side table</div>
   </div>
 
