@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Montana Builds — Henry Meehan</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing:border-box; margin:0; padding:0; }
+    :root { --paper:#F4F1EC; --ink:#1A1A1A; --ink-mid:#6B6864; --accent:#B8452A; --accent-light:#D4603E; }
+    body { background:var(--paper); color:var(--ink); font-family:'Inter',sans-serif; font-weight:300; }
+    nav { position:fixed; top:0; left:0; right:0; z-index:50; padding:1rem 1.5rem; display:flex; align-items:center; justify-content:space-between; background:rgba(244,241,236,0.97); border-bottom:1px solid #e0dbd3; }
+    .nav-home { font-size:0.875rem; font-weight:500; letter-spacing:0.15em; text-transform:uppercase; color:var(--ink); text-decoration:none; }
+    .nav-links { display:flex; gap:2rem; }
+    .nav-links a { text-decoration:none; color:var(--ink-mid); font-size:0.875rem; transition:color 0.2s; }
+    .nav-links a:hover, .nav-links a.active { color:var(--accent); }
+    .back-link { display:inline-block; margin-top:57px; padding:1.25rem 3rem; font-family:'Inter',sans-serif; font-size:0.65rem; letter-spacing:0.2em; text-transform:uppercase; color:var(--ink-mid); text-decoration:none; transition:color 0.2s; }
+    .back-link:hover { color:var(--accent); }
+    .hero-image { width:100%; aspect-ratio:16/9; object-fit:cover; display:block; }
+    .full-image { display:block; width:100%; object-fit:cover; }
+    .full-image.wide { aspect-ratio:16/9; }
+    .full-image.portrait { aspect-ratio:3/4; }
+    .chapter-intro { max-width:760px; margin:0 auto; padding:4rem 3rem; border-bottom:1px solid #e0dbd3; }
+    .chapter-label { font-family:'Inter',sans-serif; font-size:0.65rem; letter-spacing:0.2em; text-transform:uppercase; color:var(--accent); margin-bottom:1.5rem; }
+    .chapter-title { font-family:'Fraunces',serif; font-size:clamp(2.4rem,5vw,4rem); font-weight:300; line-height:1.08; color:var(--ink); margin-bottom:2.5rem; }
+    .chapter-body p { font-size:1.0625rem; line-height:1.8; color:var(--ink); max-width:72ch; margin-bottom:1.75rem; }
+    .chapter-body p:last-child { margin-bottom:0; }
+    .img-caption { padding:0.75rem 3rem; font-family:'Inter',sans-serif; font-size:0.65rem; letter-spacing:0.12em; text-transform:uppercase; color:var(--ink-mid); border-bottom:1px solid #e0dbd3; }
+    .img-grid { display:grid; gap:3px; }
+    .img-grid.cols-2 { grid-template-columns:1fr 1fr; border-top:1px solid #e0dbd3; }
+    .img-grid.cols-3 { grid-template-columns:1fr 1fr 1fr; border-top:1px solid #e0dbd3; }
+    .img-grid img { width:100%; object-fit:cover; display:block; aspect-ratio:4/3; }
+    .img-grid img.wide { aspect-ratio:16/9; }
+    .img-grid img.portrait { aspect-ratio:3/4; }
+    .guitar-list {}
+    .guitar-entry { display:flex; align-items:center; justify-content:space-between; gap:2rem; padding:2.5rem 3rem; border-bottom:1px solid #e0dbd3; text-decoration:none; color:inherit; transition:background 0.2s; }
+    .guitar-entry:hover { background:rgba(184,69,42,0.04); }
+    .guitar-entry-left { flex:1; }
+    .guitar-num { font-family:'Inter',sans-serif; font-size:0.65rem; letter-spacing:0.2em; text-transform:uppercase; color:var(--accent); margin-bottom:0.4rem; }
+    .guitar-name { font-family:'Fraunces',serif; font-size:1.6rem; font-weight:300; color:var(--ink); margin-bottom:0.4rem; }
+    .guitar-dek { font-size:0.9rem; line-height:1.6; color:var(--ink-mid); max-width:48ch; }
+    .guitar-cta { font-family:'Inter',sans-serif; font-size:0.7rem; letter-spacing:0.15em; text-transform:uppercase; color:var(--accent); white-space:nowrap; }
+    footer { padding:3rem; text-align:center; color:var(--ink-mid); font-size:0.8rem; border-top:1px solid #e0dbd3; }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="../index.html" class="nav-home">Henry Meehan</a>
+    <div class="nav-links">
+      <a href="../photography.html">Photography</a>
+      <a href="../design.html" class="active">Design</a>
+      <a href="../about.html">About</a>
+      <a href="../contact.html">Contact</a>
+    </div>
+  </nav>
+
+  <a href="../design.html" class="back-link">← Design</a>
+
+  <!-- Hero — Lil Goldie + Coffee Caster backs hanging outdoors, Montana mountains behind -->
+  <img class="hero-image" src="../photos/design/guitar-lil-goldie-coffee-caster-montana-back.jpg" alt="Lil Goldie and Coffee Caster hanging from an outdoor drying frame in Montana — olive-green and deep orange-red backs, snow-capped mountains and a Chevy truck behind them">
+
+  <div class="chapter-intro">
+    <div class="chapter-label">Luthiery</div>
+    <h1 class="chapter-title">Montana Builds</h1>
+    <div class="chapter-body">
+      <p>The Relic Messenger was a client's brief. These four were mine.</p>
+      <p>I built them between guide seasons — Auburn graduation in May, summer on the Madison, winter back in the shop, then Montana again. Each one started as a question I hadn't gotten to on the first build: could I wind a better pickup on my own, could I build at a different scale, could I take a shape I liked and pull it apart into something that was mine. Some of those answers are finished. A couple are still open.</p>
+      <p>I didn't grow up thinking of my family as musical. Mom liked to sing in the car. My brothers and I played Guitar Hero too much. Then junior year of high school I heard Jimi Hendrix for the first time and figured I had to try, even if I was never going to sound like him. A while later I noticed an old photo in my dad's office I'd never seen before — him as a kid, barely the size of the guitar he was trying to play. Turns out we were a musical family. We weren't the best in the neighborhood or anything, but we loved the instruments themselves and what they did to a room. That decided something.</p>
+      <p>First electric was a used maple Epiphone ES, $350 at a pink music store down the street. One dead pickup. I loved it. The deeper I got, the more questions it opened up — woods and resonance, solid body versus semi-hollow, tuner geometry, pickup winding, headless necks. I'd fall asleep at 1 a.m. on YouTube rig rundowns. In 2019 my brother took me to the MET's legendary guitars exhibit in New York. Pink Floyd, the Beatles, Jerry Garcia, Hendrix, Clapton. That was the turning point. The Relic Messenger was the start. These four are what came after.</p>
+      <p>The whole build happened at a makerspace in Montana with a Grizzly bandsaw and whatever StewMac would ship.</p>
+    </div>
+  </div>
+
+  <!-- Raw mahogany slab — materials origin -->
+  <img class="full-image wide" src="../photos/design/guitar-raw-mahogany-slab-macro.jpg" alt="Extreme close-up of raw mahogany lumber — flowing growth rings, the material before any cutting or staining" style="border-top:1px solid #e0dbd3;">
+  <div class="img-caption">Where it starts — raw mahogany, growth rings still intact</div>
+
+  <!-- Four bodies in a row at raw stage — the best "how it was made" shot -->
+  <img class="full-image wide" src="../photos/design/guitar-four-bodies-bench-lineup.jpg" alt="All four guitar bodies in a row on the bench at the same raw unfinished stage — routing template on far left, three PRS bodies in sequence, rightmost with bird inlay neck fitted">
+  <div class="img-caption">Before any stain — all four bodies in sequence on the bench. The routing template is at far left.</div>
+
+  <!-- Henry spraying outdoors — only person shot in the sequence -->
+  <img class="full-image wide" src="../photos/design/guitar-henry-spraying-montana.jpg" alt="Henry crouching to spray a guitar body on the outdoor drying frame — Montana mountains and fields behind him" style="border-top:1px solid #e0dbd3;">
+  <div class="img-caption">Finishing pass — Madison River Valley, Montana</div>
+
+  <!-- Router at work + rasp contouring -->
+  <div class="img-grid cols-2">
+    <img class="wide" src="../photos/design/guitar-routing-ridgid-router-session.jpg" alt="RIDGID router actively routing a pickup cavity on a clamped body — sawdust visible, the machine moment">
+    <img class="wide" src="../photos/design/guitar-strat-rasp-contouring.jpg" alt="Blue Strat body clamped in workbench horse, rasp mid-stroke, wood shavings falling">
+  </div>
+  <!-- Chisel detail + lower bout carving -->
+  <div class="img-grid cols-2">
+    <img class="wide" src="../photos/design/guitar-shop-all-three-chisels-a.jpg" alt="Chisel with curled wood shavings spiraling off the blade">
+    <img class="wide" src="../photos/design/guitar-body-lower-bout-carving.jpg" alt="Lower bout contour carving — rasp against raw wood, shape emerging">
+  </div>
+  <div class="img-caption">Router, rasp, chisel — the tooling that does the actual work</div>
+
+  <!-- Three bodies on Grizzly workbench, tools laid out -->
+  <div class="img-grid cols-2">
+    <img class="wide" src="../photos/design/guitar-three-bodies-grizz-workbench-a.jpg" alt="Three PRS bodies and necks on the Grizzly bandsaw workbench — wrenches, chisels, blue tape, calipers laid out">
+    <img class="wide" src="../photos/design/guitar-three-bodies-grizz-workbench-b.jpg" alt="Grizzly workbench, second angle — all tools in frame">
+  </div>
+
+  <!-- Bird's-eye — all four instruments -->
+  <img class="full-image wide" src="../photos/design/guitar-shop-all-four-birds-eye.jpg" alt="Bird's-eye view of all four instruments on the shop floor — Blue Strat, Flame Bass, and two PRS bodies with bird inlay necks" style="border-top:1px solid #e0dbd3;">
+  <div class="img-caption">All four — end of a build session</div>
+
+  <div class="guitar-list">
+
+    <a href="luthiery/lil-goldie.html" class="guitar-entry">
+      <div class="guitar-entry-left">
+        <div class="guitar-num">01 · Lil Goldie · Ongoing</div>
+        <div class="guitar-name">Lil Goldie</div>
+        <div class="guitar-dek">Mahogany, maple, and a nitro finish that should crack up nicely with age.</div>
+      </div>
+      <div class="guitar-cta">Open →</div>
+    </a>
+
+    <a href="luthiery/coffee-caster.html" class="guitar-entry">
+      <div class="guitar-entry-left">
+        <div class="guitar-num">02 · The Coffee Caster</div>
+        <div class="guitar-name">The Coffee Caster</div>
+        <div class="guitar-dek">Same shape as Lil Goldie. Stained with recycled coffee beans. Different guitar entirely.</div>
+      </div>
+      <div class="guitar-cta">Open →</div>
+    </a>
+
+    <a href="luthiery/blue-strat.html" class="guitar-entry">
+      <div class="guitar-entry-left">
+        <div class="guitar-num">03 · Blue Strat</div>
+        <div class="guitar-name">Blue Strat</div>
+        <div class="guitar-dek">Blue quilted maple over mahogany. SSS single coil config. Built to work through every pickup configuration I hadn't tried yet.</div>
+      </div>
+      <div class="guitar-cta">Open →</div>
+    </a>
+
+    <a href="luthiery/flame-bass.html" class="guitar-entry">
+      <div class="guitar-entry-left">
+        <div class="guitar-num">04 · Flame Bass</div>
+        <div class="guitar-name">Flame Bass</div>
+        <div class="guitar-dek">Tobacco sunburst over flame maple. Walnut back. P+J routing. Four strings on a guitar-shaped body.</div>
+      </div>
+      <div class="guitar-cta">Open →</div>
+    </a>
+
+  </div>
+
+  <!-- Closing — Blue Strat + Flame Bass hanging -->
+  <img class="full-image wide" src="../photos/design/guitar-blue-strat-flame-bass-hanging.jpg" alt="Blue Strat and Flame Bass hanging in the studio — cobalt blue vs dark walnut" style="border-top:1px solid #e0dbd3;">
+
+  <footer>© 2025 Henry Meehan · Birmingham, Alabama</footer>
+
+</body>
+</html>
