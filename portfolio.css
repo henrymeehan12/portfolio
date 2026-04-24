@@ -1,0 +1,75 @@
+/* ── Portfolio shared mobile nav ── */
+.port-hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  padding: 4px;
+  background: none;
+  border: none;
+  color: inherit;
+}
+.port-hamburger span {
+  display: block;
+  width: 20px;
+  height: 2px;
+  background: currentColor;
+  border-radius: 1px;
+  transition: all 0.2s;
+}
+.port-hamburger.port-open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.port-hamburger.port-open span:nth-child(2) { opacity: 0; }
+.port-hamburger.port-open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+/* Dark nav dropdown (index, photography, about, contact) */
+.port-nav-dark { position: relative; }
+.port-nav-dark .port-nav-dropdown {
+  display: none;
+  position: absolute;
+  top: 100%; left: 0; right: 0;
+  background: rgba(10,10,10,0.97);
+  border-bottom: 1px solid #1a1a1a;
+  flex-direction: column;
+  padding: 0.5rem 0;
+  z-index: 100;
+}
+.port-nav-dark .port-nav-dropdown.port-open { display: flex; }
+.port-nav-dark .port-nav-dropdown a {
+  padding: 0.9rem 1.5rem;
+  font-size: 0.875rem;
+  color: #999;
+  text-decoration: none;
+  border-bottom: 1px solid #111;
+}
+.port-nav-dark .port-nav-dropdown a:last-child { border-bottom: none; }
+
+/* Light nav dropdown (design.html) */
+.port-nav-light { position: relative; }
+.port-nav-light .port-nav-dropdown {
+  display: none;
+  position: absolute;
+  top: 100%; left: 0; right: 0;
+  background: rgba(244,241,236,0.98);
+  border-bottom: 1px solid #e0dbd3;
+  flex-direction: column;
+  padding: 0.5rem 0;
+  z-index: 100;
+}
+.port-nav-light .port-nav-dropdown.port-open { display: flex; }
+.port-nav-light .port-nav-dropdown a {
+  padding: 0.9rem 1.5rem;
+  font-size: 0.875rem;
+  color: #6B6864;
+  text-decoration: none;
+  border-bottom: 1px solid #e0dbd3;
+}
+.port-nav-light .port-nav-dropdown a:last-child { border-bottom: none; }
+
+@media (max-width: 768px) {
+  .port-hamburger { display: flex !important; }
+
+  /* Hide inline-flex nav links on dark pages */
+  nav .flex.gap-8 { display: none !important; }
+  /* Hide CSS-class nav links on design page */
+  .nav-links { display: none !important; }
+}

@@ -7,6 +7,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="portfolio.css">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -190,15 +191,38 @@
       font-size: 0.8rem;
       border-top: 1px solid #e0dbd3;
     }
+
+  @media (max-width: 768px) {
+    .nav-links { display: none; }
+    .hero { padding: 5rem 1.25rem 3rem; }
+    .hero-title { font-size: 2.2rem; }
+    .card-image { min-height: 50vw; }
+    .card-text { padding: 1.5rem 1.25rem !important; flex-direction: column; align-items: flex-start; gap: 1rem; }
+    .card-cta { margin-top: 0.5rem; }
+    .sketch-entry { padding: 2rem 1.25rem; flex-direction: column; align-items: flex-start; gap: 1.25rem; }
+    footer { padding: 2rem 1.25rem; }
+  }
+  @media (max-width: 480px) {
+    .hero-title { font-size: 1.9rem; }
+  }
   </style>
 </head>
 <body>
 
-  <nav>
+  <nav class="port-nav-light">
     <a href="index.html" class="nav-home">Henry Meehan</a>
+    <button class="port-hamburger" id="port-hamburger" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
     <div class="nav-links">
       <a href="photography.html">Photography</a>
       <a href="design.html" class="active">Design</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <div class="port-nav-dropdown" id="port-nav-links">
+      <a href="photography.html">Photography</a>
+      <a href="design.html" style="color:#B8452A;">Design</a>
       <a href="about.html">About</a>
       <a href="contact.html">Contact</a>
     </div>
@@ -317,5 +341,17 @@
 
   <footer>© 2025 Henry Meehan · Birmingham, Alabama</footer>
 
+  <script>
+    // Mobile nav
+    (function() {
+      const btn = document.getElementById('port-hamburger');
+      const links = document.getElementById('port-nav-links');
+      if (!btn || !links) return;
+      btn.addEventListener('click', () => {
+        links.classList.toggle('port-open');
+        btn.classList.toggle('port-open');
+      });
+    })();
+  </script>
 </body>
 </html>

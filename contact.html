@@ -6,6 +6,7 @@
   <title>Contact — Henry Meehan</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="portfolio.css">
   <style>
     body { background: #0a0a0a; color: #e8e8e8; font-family: 'Inter', sans-serif; }
     input, textarea, select {
@@ -38,13 +39,22 @@
   </style>
 </head>
 <body>
-  <nav class="fixed top-0 w-full z-50 px-6 py-4 flex items-center justify-between" style="background: rgba(10,10,10,0.95); border-bottom: 1px solid #1a1a1a;">
+  <nav class="fixed top-0 w-full z-50 px-6 py-4 flex items-center justify-between port-nav-dark" style="background: rgba(10,10,10,0.95); border-bottom: 1px solid #1a1a1a;">
     <a href="index.html" style="font-size:0.875rem;font-weight:500;letter-spacing:0.15em;text-transform:uppercase;color:#e8e8e8;text-decoration:none;">Henry Meehan</a>
+    <button class="port-hamburger" id="port-hamburger" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
     <div class="flex gap-8 text-sm" style="color:#999;">
       <a href="photography.html" style="text-decoration:none;color:#999;" onmouseover="this.style.color='#d4a853'" onmouseout="this.style.color='#999'">Photography</a>
       <a href="design.html" style="text-decoration:none;color:#999;" onmouseover="this.style.color='#d4a853'" onmouseout="this.style.color='#999'">Design</a>
       <a href="about.html" style="text-decoration:none;color:#999;" onmouseover="this.style.color='#d4a853'" onmouseout="this.style.color='#999'">About</a>
       <a href="contact.html" style="text-decoration:none;color:#d4a853;">Contact</a>
+    </div>
+    <div class="port-nav-dropdown" id="port-nav-links">
+      <a href="photography.html">Photography</a>
+      <a href="design.html">Design</a>
+      <a href="about.html">About</a>
+      <a href="contact.html" style="color:#d4a853;">Contact</a>
     </div>
   </nav>
 
@@ -92,5 +102,18 @@
   <footer class="px-8 py-12 text-center border-t" style="border-color:#1a1a1a;color:#444;font-size:0.875rem;">
     <p>© 2025 Henry Meehan · Birmingham, Alabama</p>
   </footer>
+
+  <script>
+    // Mobile nav
+    (function() {
+      const btn = document.getElementById('port-hamburger');
+      const links = document.getElementById('port-nav-links');
+      if (!btn || !links) return;
+      btn.addEventListener('click', () => {
+        links.classList.toggle('port-open');
+        btn.classList.toggle('port-open');
+      });
+    })();
+  </script>
 </body>
 </html>

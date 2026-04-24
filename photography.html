@@ -7,6 +7,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="portfolio.css">
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body { background: #0a0a0a; color: #e8e8e8; font-family: 'Inter', sans-serif; overflow: hidden; }
@@ -77,18 +78,39 @@
       display: block;
       margin-top: 1rem;
     }
+
+  @media (max-width: 768px) {
+    .panel-content { padding: 1.5rem 1.25rem !important; }
+    .chapter-title { font-size: 1.75rem !important; }
+    .panel-right { display: none !important; }
+    .chapter-teaser { font-size: 0.8rem !important; }
+    .read-link { padding: 0.5rem 1.1rem; font-size: 0.7rem; }
+    /* Exhibited panel padding */
+    .chapter-panel:first-child > [style*="padding:3rem 4rem"] {
+      padding: 2rem 1.25rem !important;
+    }
+  }
   </style>
 </head>
 <body>
 
   <!-- Nav -->
-  <nav class="fixed top-0 w-full z-50 px-6 py-4 flex items-center justify-between" style="background: rgba(10,10,10,0.95); border-bottom: 1px solid #1a1a1a;">
+  <nav class="fixed top-0 w-full z-50 px-6 py-4 flex items-center justify-between port-nav-dark" style="background: rgba(10,10,10,0.95); border-bottom: 1px solid #1a1a1a;">
     <a href="index.html" style="font-size:0.875rem;font-weight:500;letter-spacing:0.15em;text-transform:uppercase;color:#e8e8e8;text-decoration:none;">Henry Meehan</a>
+    <button class="port-hamburger" id="port-hamburger" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
     <div class="flex gap-8 text-sm">
       <a href="photography.html" style="text-decoration:none;color:#d4a853;">Photography</a>
       <a href="design.html" style="text-decoration:none;color:#999;" onmouseover="this.style.color='#d4a853'" onmouseout="this.style.color='#999'">Design</a>
       <a href="about.html" style="text-decoration:none;color:#999;" onmouseover="this.style.color='#d4a853'" onmouseout="this.style.color='#999'">About</a>
       <a href="contact.html" style="text-decoration:none;color:#999;" onmouseover="this.style.color='#d4a853'" onmouseout="this.style.color='#999'">Contact</a>
+    </div>
+    <div class="port-nav-dropdown" id="port-nav-links">
+      <a href="photography.html" style="color:#d4a853;">Photography</a>
+      <a href="design.html">Design</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
     </div>
   </nav>
 
@@ -279,6 +301,17 @@
   </div>
 
   <script>
+    // Mobile nav
+    (function() {
+      const btn = document.getElementById('port-hamburger');
+      const links = document.getElementById('port-nav-links');
+      if (!btn || !links) return;
+      btn.addEventListener('click', () => {
+        links.classList.toggle('port-open');
+        btn.classList.toggle('port-open');
+      });
+    })();
+
     const snapWrap = document.getElementById('snap-wrap');
     const panels = document.querySelectorAll('.chapter-panel');
     const counter = document.getElementById('panel-counter');

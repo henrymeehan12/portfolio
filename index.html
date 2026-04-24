@@ -7,6 +7,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="portfolio.css">
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body { background: #0a0a0a; color: #e8e8e8; font-family: 'Inter', sans-serif; }
@@ -73,18 +74,40 @@
     .section-card:hover .card-arrow {
       transform: translateX(5px);
     }
+
+  @media (max-width: 768px) {
+    /* Hero font */
+    .hero-content h1 { font-size: 2.5rem !important; }
+    /* Card grid stack */
+    div[style*="grid-template-columns:1fr 1fr"] { grid-template-columns: 1fr !important; }
+    /* Bio strip stack */
+    div[style*="gap:6rem"] { flex-direction: column !important; gap: 2rem !important; padding: 2rem 1.25rem !important; }
+    /* Bio stat cols stack */
+    div[style*="gap:3rem"] { flex-direction: column !important; gap: 1.25rem !important; }
+    /* Footer */
+    footer { padding: 1.5rem 1.25rem !important; }
+  }
   </style>
 </head>
 <body>
 
   <!-- Nav -->
-  <nav class="fixed top-0 w-full z-50 px-6 py-4 flex items-center justify-between" style="background: rgba(10,10,10,0.0); border-bottom: 1px solid transparent; transition: all 0.3s;" id="main-nav">
+  <nav class="fixed top-0 w-full z-50 px-6 py-4 flex items-center justify-between port-nav-dark" style="background: rgba(10,10,10,0.0); border-bottom: 1px solid transparent; transition: all 0.3s;" id="main-nav">
     <a href="index.html" style="font-size:0.875rem;font-weight:500;letter-spacing:0.15em;text-transform:uppercase;color:#e8e8e8;text-decoration:none;">Henry Meehan</a>
+    <button class="port-hamburger" id="port-hamburger" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
     <div class="flex gap-8 text-sm">
       <a href="photography.html" style="text-decoration:none;color:#999;" onmouseover="this.style.color='#d4a853'" onmouseout="this.style.color='#999'">Photography</a>
       <a href="design.html" style="text-decoration:none;color:#999;" onmouseover="this.style.color='#d4a853'" onmouseout="this.style.color='#999'">Design</a>
       <a href="about.html" style="text-decoration:none;color:#999;" onmouseover="this.style.color='#d4a853'" onmouseout="this.style.color='#999'">About</a>
       <a href="contact.html" style="text-decoration:none;color:#999;" onmouseover="this.style.color='#d4a853'" onmouseout="this.style.color='#999'">Contact</a>
+    </div>
+    <div class="port-nav-dropdown" id="port-nav-links">
+      <a href="photography.html">Photography</a>
+      <a href="design.html">Design</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
     </div>
   </nav>
 
@@ -164,6 +187,17 @@
   </footer>
 
   <script>
+    // Mobile nav
+    (function() {
+      const btn = document.getElementById('port-hamburger');
+      const links = document.getElementById('port-nav-links');
+      if (!btn || !links) return;
+      btn.addEventListener('click', () => {
+        links.classList.toggle('port-open');
+        btn.classList.toggle('port-open');
+      });
+    })();
+
     // Fade nav in on scroll
     const nav = document.getElementById('main-nav');
     window.addEventListener('scroll', () => {
